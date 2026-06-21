@@ -55,18 +55,38 @@ PharmaCare
 
 <div id="loginPage" class="container page active">
 
+<div class="login-card">
+
+<div class="login-card-header">
+<div class="login-card-icon" aria-hidden="true">
+<svg viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="45" fill="currentColor"/>
+<rect x="45" y="25" width="10" height="50" fill="white"/>
+<rect x="25" y="45" width="50" height="10" fill="white"/>
+</svg>
+</div>
 <h3 data-i18n="login_title">Login</h3>
+<p class="login-card-subtitle" data-i18n="login_subtitle">Welcome back to PharmaCare</p>
+</div>
 
-<input data-i18n-placeholder="login_email_ph" placeholder="Email" autocomplete="email" inputmode="email">
+<div class="login-field">
+<input id="loginEmail" type="email" autocomplete="email" inputmode="email" placeholder=" ">
+<label for="loginEmail" data-i18n="login_email_ph">Email</label>
+</div>
 
-<input type="password" data-i18n-placeholder="login_password_ph" placeholder="Password" autocomplete="current-password">
+<div class="login-field">
+<input id="loginPassword" type="password" autocomplete="current-password" placeholder=" ">
+<label for="loginPassword" data-i18n="login_password_ph">Password</label>
+</div>
 
-<button onclick="login()" data-i18n="login_btn">Login</button>
+<button type="button" class="login-btn-primary" onclick="login()" data-i18n="login_btn">Login</button>
 
-<p class="center">or</p>
+<p class="login-divider"><span data-i18n="login_or">or</span></p>
 
-<button onclick="showSignup()" data-i18n="login_create_btn">Create Account</button>
-<button onclick="login()" data-i18n="login_guest_btn">Continue as Guest</button>
+<button type="button" class="login-btn-secondary" onclick="showSignup()" data-i18n="login_create_btn">Create Account</button>
+<button type="button" class="login-btn-ghost" onclick="login()" data-i18n="login_guest_btn">Continue as Guest</button>
+
+</div>
 
 </div>
 
@@ -107,6 +127,10 @@ PharmaCare
 
 <div class="card" onclick="openPage('interactionPage')">
 <span data-i18n="card_drug_interaction">Drug Interaction</span>
+</div>
+
+<div class="card card--library" onclick="openPage('libraryPage')">
+<span data-i18n="card_medicine_library">Medicine Library</span>
 </div>
 
 <div class="card" onclick="openPage('reminderPage')">
@@ -339,20 +363,24 @@ BMI Calculator
 
 <div id="libraryPage" class="container page">
 
-<h3 data-i18n="library_title">Drug & Herbal Library</h3>
+<h3 data-i18n="library_title">Medicine Library</h3>
 <button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
-<p data-i18n="library_desc">A quick library of common drugs and herbs, with simple drug search.</p>
+<p data-i18n="library_desc">Browse 200+ medicines by illness category, search any drug, or explore the herbal section.</p>
 
-<h4 data-i18n="library_search_title">🔍 Drug Search</h4>
-<input id="drugSearchInput" data-i18n-placeholder="library_search_ph" placeholder="Example: Paracetamol">
-<button onclick="searchDrug()" data-i18n="library_search_btn">Search Drug</button>
-<div id="drugInfoResult" class="result"></div>
+<div class="library-search-bar">
+<input id="drugSearchInput" data-i18n-placeholder="library_search_ph" placeholder="Search medicine name...">
+<button type="button" onclick="searchDrug()" data-i18n="library_search_btn">Search</button>
+</div>
+<div id="drugInfoResult" class="result library-search-result"></div>
 
-<h4 data-i18n="library_common_title">💊 Common Drugs</h4>
-<div class="result" id="libraryCommonContent"></div>
+<div class="library-stats" id="libraryStats"></div>
 
-<h4 data-i18n="library_herbs_title">🌿 Herbal Section</h4>
-<div class="result" id="libraryHerbsContent"></div>
+<div class="library-category-nav" id="libraryCategoryNav"></div>
+
+<div id="libraryCategoryContent" class="library-category-content"></div>
+
+<h4 class="section-heading section-heading--loose" data-i18n="library_herbs_title">🌿 Herbal & Natural Remedies</h4>
+<div id="libraryHerbsContent" class="library-herbs-grid"></div>
 
 </div>
 
@@ -495,30 +523,43 @@ BMI Calculator
 <h3 data-i18n="camera_title">Camera Tools</h3>
 <button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
 
+<div class="camera-card">
 <h4 data-i18n="camera_prescription_title">📷 Prescription Scanner</h4>
-<p data-i18n="camera_prescription_desc">Choose a method: open the camera or upload an image from your device.</p>
+<p data-i18n="camera_prescription_desc">Open your camera or upload a photo of a prescription to review it.</p>
 
 <div class="camera-actions">
-<button onclick="startCamera()" data-i18n="camera_open_btn">Open Camera</button>
-<button onclick="document.getElementById('imageInput').click()" data-i18n="camera_upload_btn">Upload Image</button>
+<button type="button" class="camera-btn-primary" onclick="startCamera()" data-i18n="camera_open_btn">Open Camera</button>
+<button type="button" class="camera-btn-secondary" onclick="document.getElementById('imageInput').click()" data-i18n="camera_upload_btn">Upload Image</button>
+<button type="button" class="camera-btn-stop" onclick="stopCamera()" data-i18n="camera_stop_btn">Stop Camera</button>
 </div>
 
-<input id="imageInput" class="visually-hidden-input" type="file" accept="image/*" onchange="handleImageUpload(event)">
+<input id="imageInput" class="visually-hidden-input" type="file" accept="image/*" capture="environment" onchange="handleImageUpload(event)">
 
-<div class="camera-preview">
-<video id="cameraVideo" class="camera-video" autoplay playsinline></video>
-<img id="cameraImagePreview" class="camera-image-preview" alt="">
+<div class="camera-viewfinder" id="cameraViewfinder">
+<div class="camera-viewfinder-corners" aria-hidden="true"></div>
+<video id="cameraVideo" class="camera-video" autoplay playsinline muted></video>
+<img id="cameraImagePreview" class="camera-image-preview" alt="Prescription preview">
+<div class="camera-viewfinder-hint" data-i18n="camera_hint">Align prescription inside the frame</div>
 </div>
 
-<div id="cameraStatus" class="result"></div>
+<div id="cameraStatus" class="result camera-status"></div>
+</div>
 
-<h4 class="section-heading section-heading--loose" data-i18n="barcode_title">🏷️ Drug Barcode Scanner</h4>
-<p data-i18n="barcode_desc">Point the camera to the barcode (demo), or type the barcode manually.</p>
+<div class="camera-card camera-card--barcode">
+<h4 class="section-heading" data-i18n="barcode_title">🏷️ Drug Barcode Lookup</h4>
+<p data-i18n="barcode_desc">Type a barcode or tap a demo code below to look up a medicine.</p>
+
+<div class="barcode-demo-chips">
+<button type="button" class="barcode-chip" onclick="fillBarcode('1234567890123')">Paracetamol</button>
+<button type="button" class="barcode-chip" onclick="fillBarcode('5012345678901')">Ibuprofen</button>
+<button type="button" class="barcode-chip" onclick="fillBarcode('6281234567892')">Panadol</button>
+</div>
 
 <input id="barcodeInput" data-i18n-placeholder="barcode_ph" placeholder="Example: 1234567890123">
-<button onclick="scanBarcode()" data-i18n="barcode_btn">Scan / Lookup</button>
+<button type="button" onclick="scanBarcode()" data-i18n="barcode_btn">Lookup Barcode</button>
 
 <div id="barcodeResult" class="result"></div>
+</div>
 
 </div>
 
@@ -526,91 +567,27 @@ BMI Calculator
 
 <div id="pharmacyLocatorPage" class="container page">
 
-    <h3 data-i18n="locator_title">Pharmacy Locator</h3>
-
-    <button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">
-        ← Back
-    </button>
-
-    <p data-i18n="locator_desc">
-        Find nearby pharmacies and hospitals using your location.
-    </p>
-
-    <div class="camera-actions">
-        <button onclick="showNearby('pharmacy')" data-i18n="locator_pharm_btn">
-            Nearby Pharmacies
-        </button>
-
-        <button onclick="showNearby('hospital')" data-i18n="locator_hosp_btn">
-            Nearby Hospitals
-        </button>
-    </div>
-
-    <div id="locatorStatus" class="result"></div>
-
-    <!-- Map Box -->
-    <div id="mapContainer" style="margin-top:20px;">
-        <iframe
-            id="mapFrame"
-            width="100%"
-            height="450"
-            style="border:none;border-radius:12px;"
-            loading="eager"
-            allowfullscreen>
-        </iframe>
-    </div>
-
-</div>
-
-<script>
-function showNearby(type) {
-    const status = document.getElementById("locatorStatus");
-
-    if (!navigator.geolocation) {
-        status.innerHTML = "Geolocation is not supported by your browser.";
-        return;
-    }
-
-    status.innerHTML = "Getting your location...";
-
-    navigator.geolocation.getCurrentPosition(
-        function(position) {
-            const lat = position.coords.latitude;
-            const lng = position.coords.longitude;
-
-            status.innerHTML = "";
-
-            const query = type === "pharmacy"
-                ? "pharmacy"
-                : "hospital";
-
-            document.getElementById("mapFrame").src =
-                `https://www.google.com/maps?q=${query}&near=${lat},${lng}&output=embed`;
-        },
-        function() {
-            status.innerHTML = "Unable to retrieve your location.";
-        }
-    );
-}
-</script>
-
-</div>
-
-<!-- DRUG NEWS -->
-
-<div id="drugNewsPage" class="container page">
-
-<h3 data-i18n="news_title">Drug News</h3>
+<h3 data-i18n="locator_title">Pharmacy Locator</h3>
 <button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
-<p data-i18n="news_desc">Latest drug news (live). Data is pulled from public FDA OpenFDA endpoints when available.</p>
+<p data-i18n="locator_desc">Your exact location is shown on the map. Tap below to find the nearest pharmacies or hospitals.</p>
 
-<div class="camera-actions">
-<button onclick="loadDrugNews()" data-i18n="news_refresh_btn">Refresh News</button>
+<div id="locatorCoords" class="locator-coords"></div>
+
+<div class="locator-map-frame">
+<iframe id="mapFrame" title="Location map" loading="eager" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="locator-map-pin" aria-hidden="true">📍</div>
 </div>
 
-<div class="result" id="drugNewsList">Loading...</div>
+<div class="locator-actions">
+<button type="button" id="locatorPharmBtn" class="locator-btn locator-btn--pharm" onclick="showNearby('pharmacy')" data-i18n="locator_pharm_btn">Nearby Pharmacies</button>
+<button type="button" id="locatorHospBtn" class="locator-btn locator-btn--hosp" onclick="showNearby('hospital')" data-i18n="locator_hosp_btn">Nearby Hospitals</button>
+<button type="button" class="locator-btn locator-btn--me" onclick="showMyLocation()" data-i18n="locator_me_btn">My Location</button>
+</div>
+
+<div id="locatorStatus" class="result locator-status"></div>
 
 </div>
+
 
 <!-- BOTTOM NAV -->
 
@@ -641,14 +618,10 @@ function showNearby(type) {
 <span class="bottom-nav-label" data-i18n="nav_locator">Locator</span>
 </button>
 
-<button type="button" class="bottom-nav-item" onclick="openPage('drugNewsPage')">
-<span class="bottom-nav-icon" aria-hidden="true">📰</span>
-<span class="bottom-nav-label" data-i18n="nav_news">News</span>
-</button>
-
 </nav>
 
 <script src="drug-data.js"></script>
+<script src="drug-extended.js"></script>
 <script src="script.js"></script>
 
 </body>

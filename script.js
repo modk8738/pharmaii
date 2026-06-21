@@ -1,9 +1,19 @@
-function login(){
+function login() {
 
-document.getElementById("loginPage").classList.remove("active");
-document.getElementById("signupPage").classList.remove("active");
+  const btn = document.querySelector('#loginPage .login-btn-primary');
+  if (!btn) return;
 
-document.getElementById("dashboardPage").classList.add("active");
+  btn.classList.add('login-success');
+  btn.textContent = '✓ Logging in...';
+
+  setTimeout(() => {
+    document.getElementById("loginPage").classList.remove("active");
+    document.getElementById("signupPage").classList.remove("active");
+    document.getElementById("dashboardPage").classList.add("active");
+
+    btn.classList.remove('login-success');
+    btn.textContent = t('login_btn');
+  }, 500);
 
 }
 
@@ -23,8 +33,16 @@ pages.forEach(p=>p.classList.remove("active"));
 
 document.getElementById(page).classList.add("active");
 
-if(page==="drugNewsPage"){
-loadDrugNews();
+if(page==="pharmacyLocatorPage"){
+initLocatorMap();
+}
+
+if(page==="libraryPage"){
+renderLibraryPage();
+}
+
+if(page==="cameraPage"){
+stopCamera();
 }
 
 }
@@ -92,9 +110,11 @@ refreshNews:"செய்திகளை புதுப்பி"
 // Add full-page UI keys (all pages)
 Object.assign(I18N.en,{
 login_title:"Login",
+login_subtitle:"Welcome back to PharmaCare",
 login_email_ph:"Email",
 login_password_ph:"Password",
 login_btn:"Login",
+login_or:"or",
 login_create_btn:"Create Account",
 login_guest_btn:"Continue as Guest",
 signup_title:"Create Account",
@@ -108,6 +128,7 @@ card_medical_calculators:"Medical Calculators",
 card_dose_calculator:"Dose Calculator",
 card_bmi_calculator:"BMI Calculator",
 card_drug_interaction:"Drug Interaction",
+card_medicine_library:"Medicine Library (200+)",
 card_medication_reminder:"Medication Reminder",
 card_pill_identifier:"Pill Identifier",
 card_first_aid:"First Aid",
@@ -147,13 +168,14 @@ interaction_title:"Drug Interaction",
 interaction_drug1_ph:"Drug 1",
 interaction_drug2_ph:"Drug 2",
 interaction_btn:"Check Interaction",
-library_title:"Drug & Herbal Library",
-library_desc:"A quick library of common drugs and herbs, with simple drug search.",
-library_search_title:"🔍 Drug Search",
-library_search_ph:"Example: Paracetamol",
-library_search_btn:"Search Drug",
-library_common_title:"💊 Common Drugs",
-library_herbs_title:"🌿 Herbal Section",
+library_title:"Medicine Library",
+library_desc:"Browse 200+ medicines by illness category, search any drug, or explore the herbal section.",
+library_search_ph:"Search medicine name...",
+library_search_btn:"Search",
+library_stats:"{count} medicines in {categories} illness categories",
+library_herbs_title:"🌿 Herbal & Natural Remedies",
+library_browse_title:"Browse by Illness Category",
+library_view_all:"All",
 pill_title:"Pill Identifier",
 pill_desc:"Enter pill color, shape, and imprint to help identify the medication.",
 pill_color_ph:"Color (e.g., White)",
@@ -192,33 +214,40 @@ profile_allergies_ph:"Allergies",
 profile_btn:"Save Profile",
 camera_title:"Camera Tools",
 camera_prescription_title:"📷 Prescription Scanner",
-camera_prescription_desc:"Choose a method: open the camera or upload an image from your device.",
+camera_prescription_desc:"Open your camera or upload a photo of a prescription to review it.",
 camera_open_btn:"Open Camera",
 camera_upload_btn:"Upload Image",
 barcode_title:"🏷️ Drug Barcode Scanner",
-barcode_desc:"Point the camera to the barcode (demo), or type the barcode manually.",
+barcode_desc:"Type a barcode or tap a demo code below to look up a medicine.",
 barcode_ph:"Example: 1234567890123",
-barcode_btn:"Scan / Lookup",
+barcode_btn:"Lookup Barcode",
 locator_title:"Pharmacy Locator",
-locator_desc:"Find nearby pharmacies and hospitals using your location (opens your maps app/site).",
+camera_stop_btn:"Stop Camera",
+camera_hint:"Align prescription inside the frame",
+locator_desc:"Your exact location is shown on the map. Tap below to find the nearest pharmacies or hospitals.",
+locator_me_btn:"My Location",
+locator_getting:"Getting your exact location...",
+locator_found:"Showing your location on the map.",
+locator_pharm_found:"Showing nearest pharmacies to you.",
+locator_hosp_found:"Showing nearest hospitals to you.",
+locator_error:"Unable to retrieve your location. Please enable GPS/location permissions.",
+locator_unsupported:"Geolocation is not supported by your browser.",
 locator_pharm_btn:"Nearby Pharmacies",
 locator_hosp_btn:"Nearby Hospitals",
-news_title:"Drug News",
-news_desc:"Latest drug news (live). Data is pulled from public FDA OpenFDA endpoints when available.",
-news_refresh_btn:"Refresh News",
 nav_dashboard:"Dashboard",
 nav_camera:"Camera",
 nav_drugs:"Drugs",
 nav_account:"Account",
-nav_locator:"Locator",
-nav_news:"News"
+nav_locator:"Locator"
 });
 
 Object.assign(I18N.ar,{
 login_title:"تسجيل الدخول",
+login_subtitle:"مرحباً بعودتك إلى PharmaCare",
 login_email_ph:"البريد الإلكتروني",
 login_password_ph:"كلمة المرور",
 login_btn:"دخول",
+login_or:"أو",
 login_create_btn:"إنشاء حساب",
 login_guest_btn:"الدخول كضيف",
 signup_title:"إنشاء حساب",
@@ -340,9 +369,11 @@ nav_news:"أخبار"
 
 Object.assign(I18N.ta,{
 login_title:"உள்நுழைவு",
+login_subtitle:"PharmaCare-க்கு மீண்டும் வரவேற்கிறோம்",
 login_email_ph:"மின்னஞ்சல்",
 login_password_ph:"கடவுச்சொல்",
 login_btn:"உள்நுழை",
+login_or:"அல்லது",
 login_create_btn:"கணக்கு உருவாக்கு",
 login_guest_btn:"விருந்தினராக தொடரவும்",
 signup_title:"கணக்கு உருவாக்கு",
@@ -599,19 +630,7 @@ if(disease)disease.innerHTML=getContentHtml("disease");
 let guidelines=document.getElementById("guidelinesContent");
 if(guidelines)guidelines.innerHTML=getContentHtml("guidelines");
 
-let common=document.getElementById("libraryCommonContent");
-if(common){
-let lang=(window.localStorage && localStorage.getItem("pharmaLang")) || "en";
-if(lang==="en" && typeof buildLibraryHtmlFromDb==="function"){
-let h=buildLibraryHtmlFromDb();
-common.innerHTML=h||getContentHtml("library_common");
-}else{
-common.innerHTML=getContentHtml("library_common");
-}
-}
-
-let herbs=document.getElementById("libraryHerbsContent");
-if(herbs)herbs.innerHTML=getContentHtml("library_herbs");
+if(typeof renderLibraryPage==="function")renderLibraryPage();
 
 }
 
@@ -716,6 +735,7 @@ function formatDrugCardHtml(d){
 if(!d)return "";
 let html="";
 html+="<strong>Name:</strong> "+escapeHtml(d.displayName||d.name||"")+"<br>";
+html+="<strong>Category:</strong> "+escapeHtml(getCategoryLabel(d.category)||"General")+"<br>";
 html+="<strong>Use:</strong> "+escapeHtml(d.use||"")+"<br>";
 html+="<strong>Dose:</strong> "+escapeHtml(d.dose||"")+"<br>";
 html+="<strong>Limits / max:</strong> "+escapeHtml(d.max||"")+"<br>";
@@ -727,107 +747,112 @@ html+="<span style='opacity:.75'>Educational summary only — verify with offici
 return html;
 }
 
-function buildLibraryHtmlFromDb(){
-let DB=typeof PHARMACARE_DRUG_DB!=="undefined"?PHARMACARE_DRUG_DB:null;
-let order=typeof PHARMACARE_DRUG_ORDER!=="undefined"?PHARMACARE_DRUG_ORDER:null;
-if(!DB||!order)return "";
-let html="";
-let n=0;
-for(let i=0;i<order.length&&n<28;i++){
-let id=order[i];
+function getCategoryLabel(catId){
+let cats=typeof PHARMACARE_CATEGORIES!=="undefined"?PHARMACARE_CATEGORIES:[];
+for(let i=0;i<cats.length;i++){
+if(cats[i].id===catId)return cats[i].icon+" "+cats[i].name;
+}
+return catId||"";
+}
+
+var libraryActiveCategory="all";
+
+function getDrugsByCategory(catId){
+let DB=typeof PHARMACARE_DRUG_DB!=="undefined"?PHARMACARE_DRUG_DB:{};
+let list=[];
+for(let id of Object.keys(DB)){
 let d=DB[id];
 if(!d)continue;
-html+="<strong>"+escapeHtml(d.displayName||id)+"</strong><br>";
-html+="Use: "+escapeHtml(d.use||"")+"<br>";
-html+="Typical dose: "+escapeHtml(d.dose||"")+"<br><br>";
-n++;
+if(catId==="all"){
+if(d.category!=="herbal")list.push(d);
+}else if(d.category===catId){
+list.push(d);
 }
-html+="<span style='opacity:.75'>Use Drug Search for full interaction and safety fields.</span>";
-return html;
+}
+list.sort(function(a,b){
+return (a.displayName||"").localeCompare(b.displayName||"");
+});
+return list;
 }
 
-async function loadDrugNews(){
-
-let el=document.getElementById("drugNewsList");
+function renderLibraryCategoryContent(catId){
+let el=document.getElementById("libraryCategoryContent");
 if(!el)return;
-
-el.innerHTML="Loading live news...";
-
-try{
-
-// Recent FDA drug recalls (enforcement reports)
-let recallsRes=await fetch("https://api.fda.gov/drug/enforcement.json?sort=report_date:desc&limit=5");
-if(!recallsRes.ok)throw new Error("Recalls request failed");
-let recallsJson=await recallsRes.json();
-let recalls=(recallsJson.results||[]).map(r=>{
-let product=(r.product_description||"").toString();
-let reason=(r.reason_for_recall||"").toString();
-let status=(r.status||"").toString();
-let firm=(r.recalling_firm||"").toString();
-let date=(r.report_date||"").toString();
-return {product,reason,status,firm,date};
-});
-
-// Recent approvals / submissions (Drugs@FDA)
-let approvalsRes=await fetch("https://api.fda.gov/drug/drugsfda.json?sort=submissions.submission_status_date:desc&limit=5");
-if(!approvalsRes.ok)throw new Error("Approvals request failed");
-let approvalsJson=await approvalsRes.json();
-let approvals=(approvalsJson.results||[]).map(a=>{
-let brand=(a.openfda && a.openfda.brand_name && a.openfda.brand_name[0]) ? a.openfda.brand_name[0] : "";
-let generic=(a.openfda && a.openfda.generic_name && a.openfda.generic_name[0]) ? a.openfda.generic_name[0] : "";
-let sponsor=(a.sponsor_name||"").toString();
-let appNo=(a.application_number||"").toString();
-let date="";
-if(a.submissions && a.submissions[0] && a.submissions[0].submission_status_date){
-date=a.submissions[0].submission_status_date.toString();
+let drugs=getDrugsByCategory(catId);
+if(!drugs.length){
+el.innerHTML="<div class='result'>No medicines in this category.</div>";
+return;
 }
-return {brand,generic,sponsor,appNo,date};
-});
-
 let html="";
-
-html += "<strong>Recent FDA approvals / submissions (OpenFDA)</strong><br>";
-if(approvals.length===0){
-html += "- No data returned.<br><br>";
+drugs.forEach(function(d){
+html+="<details class='library-drug-item'>";
+html+="<summary><span class='library-drug-name'>"+escapeHtml(d.displayName||d.id)+"</span>";
+html+="<span class='library-drug-use'>"+escapeHtml(d.use||"")+"</span></summary>";
+html+="<div class='library-drug-body'>";
+html+="<p><strong>What it treats:</strong> "+escapeHtml(d.use||"")+"</p>";
+html+="<p><strong>Typical dose:</strong> "+escapeHtml(d.dose||"")+"</p>";
+html+="<p><strong>Side effects:</strong> "+escapeHtml(d.side||"")+"</p>";
+if(d.isHerbal){
+html+="<p class='library-herbal-tag'>🌿 Herbal / natural remedy</p>";
 }else{
-approvals.forEach(x=>{
-let name=(x.brand||x.generic||"Unknown drug");
-let details=[];
-if(x.generic)details.push("Generic: "+x.generic);
-if(x.sponsor)details.push("Sponsor: "+x.sponsor);
-if(x.appNo)details.push("App: "+x.appNo);
-if(x.date)details.push("Date: "+x.date);
-html += "- <strong>"+escapeHtml(name)+"</strong><br><span style='opacity:.85'>"+escapeHtml(details.join(" | "))+"</span><br>";
-});
-html += "<br>";
+html+="<button type='button' class='library-detail-btn' onclick=\"showDrugDetail('"+String(d.id).replace(/\\/g,"").replace(/'/g,"\\'")+"')\">Full details</button>";
 }
-
-html += "<strong>Recent FDA drug recalls (OpenFDA enforcement)</strong><br>";
-if(recalls.length===0){
-html += "- No data returned.<br>";
-}else{
-recalls.forEach(x=>{
-let title=x.product || "Recall notice";
-let details=[];
-if(x.firm)details.push("Firm: "+x.firm);
-if(x.status)details.push("Status: "+x.status);
-if(x.date)details.push("Report date: "+x.date);
-html += "- <strong>"+escapeHtml(title)+"</strong><br>";
-if(x.reason)html += "<span style='opacity:.85'>Reason: "+escapeHtml(x.reason)+"</span><br>";
-if(details.length)html += "<span style='opacity:.85'>"+escapeHtml(details.join(" | "))+"</span><br>";
+html+="</div></details>";
 });
-}
-
-html += "<br><span style='opacity:.7'>Source: FDA OpenFDA API (live). Availability depends on network/CORS.</span>";
-
 el.innerHTML=html;
-
-}catch(e){
-
-el.innerHTML="Unable to load live news right now. Please check your internet connection and try again.";
-
 }
 
+function showDrugDetail(id){
+let DB=typeof PHARMACARE_DRUG_DB!=="undefined"?PHARMACARE_DRUG_DB:null;
+let el=document.getElementById("drugInfoResult");
+if(!DB||!DB[id]||!el)return;
+el.innerHTML=formatDrugCardHtml(DB[id]);
+el.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function renderLibraryPage(){
+let statsEl=document.getElementById("libraryStats");
+let navEl=document.getElementById("libraryCategoryNav");
+let herbsEl=document.getElementById("libraryHerbsContent");
+let DB=typeof PHARMACARE_DRUG_DB!=="undefined"?PHARMACARE_DRUG_DB:{};
+let cats=typeof PHARMACARE_CATEGORIES!=="undefined"?PHARMACARE_CATEGORIES:[];
+let herbs=typeof PHARMACARE_HERBAL_DB!=="undefined"?PHARMACARE_HERBAL_DB:[];
+let total=Object.keys(DB).length;
+
+if(statsEl){
+let statsText=t("library_stats")||"{count} medicines in {categories} categories";
+statsEl.textContent=statsText.replace("{count}",total).replace("{categories}",cats.length);
+}
+
+if(navEl){
+let html="<button type='button' class='library-cat-btn"+(libraryActiveCategory==="all"?" active":"")+"' onclick=\"setLibraryCategory('all')\">"+escapeHtml(t("library_view_all")||"All")+"</button>";
+cats.forEach(function(c){
+html+="<button type='button' class='library-cat-btn"+(libraryActiveCategory===c.id?" active":"")+"' onclick=\"setLibraryCategory('"+c.id+"')\">"+escapeHtml(c.icon+" "+c.name)+"</button>";
+});
+navEl.innerHTML=html;
+}
+
+renderLibraryCategoryContent(libraryActiveCategory);
+
+if(herbsEl&&herbs.length){
+let hhtml="";
+herbs.forEach(function(h){
+hhtml+="<article class='herb-card'>";
+hhtml+="<h5>"+escapeHtml(h.name)+"</h5>";
+hhtml+="<p><strong>Use:</strong> "+escapeHtml(h.use)+"</p>";
+hhtml+="<p><strong>Dose:</strong> "+escapeHtml(h.dose)+"</p>";
+hhtml+="<p class='herb-caution'><strong>Caution:</strong> "+escapeHtml(h.caution)+"</p>";
+hhtml+="</article>";
+});
+herbsEl.innerHTML=hhtml;
+}
+}
+
+function setLibraryCategory(catId){
+libraryActiveCategory=catId;
+renderLibraryPage();
+let content=document.getElementById("libraryCategoryContent");
+if(content)content.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
 function calculatePediatricDose(){
@@ -1494,11 +1519,22 @@ if(btn)btn.textContent="🌓";
 
 }
 
+function initLoginFields() {
+  document.querySelectorAll('#loginPage .login-field input').forEach((input) => {
+    const sync = () => input.classList.toggle('has-value', input.value.length > 0);
+    input.addEventListener('input', sync);
+    input.addEventListener('change', sync);
+    sync();
+    setTimeout(sync, 200);
+  });
+}
+
 function initApp(){
 loadProfile();
 loadNotes();
 applyThemeFromStorage();
 applyLanguageFromStorage();
+initLoginFields();
 renderReminders();
 }
 
@@ -1511,52 +1547,192 @@ let lang=(window.localStorage && localStorage.getItem("pharmaLang")) || "en";
 setLanguage(lang);
 }
 
-function startCamera(){
+var locatorPosition=null;
+var locatorWatchId=null;
 
-let video=document.getElementById("cameraVideo");
-let img=document.getElementById("cameraImagePreview");
-let status=document.getElementById("cameraStatus");
+function setLocatorMapSrc(url){
+let frame=document.getElementById("mapFrame");
+if(frame)frame.src=url;
+}
 
-if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-status.innerHTML="Camera not supported in this browser.";
+function updateLocatorCoords(lat,lng){
+let el=document.getElementById("locatorCoords");
+if(!el)return;
+el.textContent="📍 "+lat.toFixed(5)+", "+lng.toFixed(5);
+}
+
+function applyLocatorPosition(pos,mode){
+let lat=pos.coords.latitude;
+let lng=pos.coords.longitude;
+locatorPosition={lat:lat,lng:lng};
+updateLocatorCoords(lat,lng);
+
+let frameUrl;
+if(mode==="pharmacy"){
+frameUrl="https://www.google.com/maps?q=pharmacy&near="+lat+","+lng+"&z=15&output=embed";
+}else if(mode==="hospital"){
+frameUrl="https://www.google.com/maps?q=hospital&near="+lat+","+lng+"&z=15&output=embed";
+}else{
+frameUrl="https://www.google.com/maps?q="+lat+","+lng+"&z=17&output=embed";
+}
+setLocatorMapSrc(frameUrl);
+
+let pharmBtn=document.getElementById("locatorPharmBtn");
+let hospBtn=document.getElementById("locatorHospBtn");
+if(pharmBtn)pharmBtn.classList.toggle("active",mode==="pharmacy");
+if(hospBtn)hospBtn.classList.toggle("active",mode==="hospital");
+}
+
+function initLocatorMap(){
+let status=document.getElementById("locatorStatus");
+if(!navigator.geolocation){
+if(status)status.textContent=t("locator_unsupported")||"Geolocation not supported.";
+return;
+}
+if(status)status.textContent=t("locator_getting")||"Getting your location...";
+
+if(locatorWatchId!==null){
+navigator.geolocation.clearWatch(locatorWatchId);
+locatorWatchId=null;
+}
+
+locatorWatchId=navigator.geolocation.watchPosition(
+function(pos){
+applyLocatorPosition(pos,"location");
+if(status)status.textContent=t("locator_found")||"Showing your location.";
+},
+function(){
+if(status)status.textContent=t("locator_error")||"Unable to get location.";
+},
+{enableHighAccuracy:true,maximumAge:10000,timeout:15000}
+);
+}
+
+function showMyLocation(){
+if(!navigator.geolocation){
+document.getElementById("locatorStatus").textContent=t("locator_unsupported");
+return;
+}
+document.getElementById("locatorStatus").textContent=t("locator_getting");
+navigator.geolocation.getCurrentPosition(
+function(pos){
+applyLocatorPosition(pos,"location");
+document.getElementById("locatorStatus").textContent=t("locator_found");
+},
+function(){
+document.getElementById("locatorStatus").textContent=t("locator_error");
+},
+{enableHighAccuracy:true,timeout:15000}
+);
+}
+
+function showNearby(type){
+let status=document.getElementById("locatorStatus");
+if(!navigator.geolocation){
+if(status)status.textContent=t("locator_unsupported");
+return;
+}
+if(status)status.textContent=t("locator_getting");
+
+function go(pos){
+applyLocatorPosition(pos,type);
+if(status){
+status.textContent=type==="pharmacy"
+?(t("locator_pharm_found")||"Showing nearest pharmacies.")
+:(t("locator_hosp_found")||"Showing nearest hospitals.");
+}
+}
+
+if(locatorPosition){
+go({coords:{latitude:locatorPosition.lat,longitude:locatorPosition.lng}});
 return;
 }
 
-navigator.mediaDevices.getUserMedia({video:true})
-.then(stream=>{
+navigator.geolocation.getCurrentPosition(go,function(){
+if(status)status.textContent=t("locator_error");
+},{enableHighAccuracy:true,timeout:15000});
+}
+
+var cameraStream=null;
+
+function startCamera(){
+let video=document.getElementById("cameraVideo");
+let img=document.getElementById("cameraImagePreview");
+let status=document.getElementById("cameraStatus");
+let viewfinder=document.getElementById("cameraViewfinder");
+
+if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){
+if(status)status.textContent="Camera not supported in this browser.";
+return;
+}
+
+stopCamera();
+
+navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"},audio:false})
+.then(function(stream){
+cameraStream=stream;
 video.srcObject=stream;
 video.style.display="block";
-img.style.display="none";
-status.innerHTML="Camera is active. Point it to the prescription.";
+if(img)img.style.display="none";
+if(viewfinder)viewfinder.classList.add("is-live");
+if(status)status.textContent="Camera active — align your prescription in the frame.";
 })
-.catch(()=>{
-status.innerHTML="Unable to access camera. Please check permissions.";
+.catch(function(){
+navigator.mediaDevices.getUserMedia({video:true,audio:false})
+.then(function(stream){
+cameraStream=stream;
+video.srcObject=stream;
+video.style.display="block";
+if(img)img.style.display="none";
+if(viewfinder)viewfinder.classList.add("is-live");
+if(status)status.textContent="Camera active — align your prescription in the frame.";
+})
+.catch(function(){
+if(status)status.textContent="Unable to access camera. Please check permissions.";
 });
+});
+}
 
+function stopCamera(){
+let video=document.getElementById("cameraVideo");
+let viewfinder=document.getElementById("cameraViewfinder");
+if(cameraStream){
+cameraStream.getTracks().forEach(function(track){track.stop();});
+cameraStream=null;
+}
+if(video){
+video.srcObject=null;
+video.style.display="none";
+}
+if(viewfinder)viewfinder.classList.remove("is-live");
 }
 
 function handleImageUpload(event){
-
 let file=event.target.files[0];
 let img=document.getElementById("cameraImagePreview");
-let video=document.getElementById("cameraVideo");
 let status=document.getElementById("cameraStatus");
+let viewfinder=document.getElementById("cameraViewfinder");
 
-if(!file){
-return;
-}
+if(!file)return;
+
+stopCamera();
 
 let reader=new FileReader();
-
 reader.onload=function(e){
+if(img){
 img.src=e.target.result;
 img.style.display="block";
-video.style.display="none";
-status.innerHTML="Image loaded. Future version will extract medicines automatically.";
+}
+if(viewfinder)viewfinder.classList.add("has-image");
+if(status)status.textContent="Prescription image loaded. Review it here — OCR extraction coming in a future update.";
 };
-
 reader.readAsDataURL(file);
+}
 
+function fillBarcode(code){
+let input=document.getElementById("barcodeInput");
+if(input)input.value=code;
+scanBarcode();
 }
 
 function scanBarcode(){
@@ -1601,35 +1777,11 @@ if(!target){
 target="dashboardPage";
 }
 
+if(document.getElementById("cameraPage")&&document.getElementById("cameraPage").classList.contains("active")){
+stopCamera();
+}
+
 openPage(target);
-
-}
-
-function openNearby(type){
-
-let status=document.getElementById("locatorStatus");
-
-if(!navigator.geolocation){
-if(status)status.innerHTML="Geolocation is not supported on this device/browser.";
-return;
-}
-
-if(status)status.innerHTML="Getting your location...";
-
-navigator.geolocation.getCurrentPosition(pos=>{
-
-let lat=pos.coords.latitude;
-let lng=pos.coords.longitude;
-let query=type==="hospital" ? "hospitals" : "pharmacies";
-
-if(status)status.innerHTML="Opening map for nearby "+query+"...";
-
-let url="https://www.google.com/maps/search/"+encodeURIComponent(query)+"/@"+lat+","+lng+",15z";
-window.open(url,"_blank");
-
-},()=>{
-if(status)status.innerHTML="Unable to get location. Please allow location permission.";
-});
 
 }
 
