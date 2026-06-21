@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1f6fff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<title>PharmaCare</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="header-brand" onclick="openPage('loginPage')">
+
+<div class="logo">
+
+<svg class="logo-svg" viewBox="0 0 100 100" aria-hidden="true">
+
+<circle cx="50" cy="50" r="45" fill="#1f6fff"/>
+
+<rect x="45" y="25" width="10" height="50" fill="white"/>
+<rect x="25" y="45" width="50" height="10" fill="white"/>
+
+</svg>
+
+</div>
+
+<div class="title">
+PharmaCare
+</div>
+
+</div>
+
+<div class="header-actions">
+<div class="lang-toggle">
+<button type="button" class="lang-btn" onclick="event.stopPropagation(); setLanguage('en')">EN</button>
+<button type="button" class="lang-btn" onclick="event.stopPropagation(); setLanguage('ar')">AR</button>
+<button type="button" class="lang-btn" onclick="event.stopPropagation(); setLanguage('ta')">TA</button>
+</div>
+<button type="button" id="themeToggle" class="theme-toggle" onclick="event.stopPropagation(); toggleTheme()">🌓</button>
+</div>
+
+</div>
+
+<!-- LOGIN -->
+
+<div id="loginPage" class="container page active">
+
+<h3 data-i18n="login_title">Login</h3>
+
+<input data-i18n-placeholder="login_email_ph" placeholder="Email" autocomplete="email" inputmode="email">
+
+<input type="password" data-i18n-placeholder="login_password_ph" placeholder="Password" autocomplete="current-password">
+
+<button onclick="login()" data-i18n="login_btn">Login</button>
+
+<p class="center">or</p>
+
+<button onclick="showSignup()" data-i18n="login_create_btn">Create Account</button>
+<button onclick="login()" data-i18n="login_guest_btn">Continue as Guest</button>
+
+</div>
+
+<!-- SIGNUP -->
+
+<div id="signupPage" class="container page">
+
+<h3 data-i18n="signup_title">Create Account</h3>
+
+<input data-i18n-placeholder="signup_name_ph" placeholder="Name">
+<input data-i18n-placeholder="signup_email_ph" placeholder="Email">
+<input data-i18n-placeholder="signup_password_ph" placeholder="Password">
+
+<button onclick="login()" data-i18n="signup_create_btn">Create Account</button>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div id="dashboardPage" class="container page">
+
+<h3 data-i18n="dashboard_title">Dashboard</h3>
+<button class="back-btn" onclick="goBack('loginPage')" data-i18n="back_btn">← Back</button>
+
+<div class="grid">
+
+<div class="card" onclick="openPage('medicalCalcPage')">
+<span data-i18n="card_medical_calculators">Medical Calculators</span>
+</div>
+
+<div class="card" onclick="openPage('dosePage')">
+<span data-i18n="card_dose_calculator">Dose Calculator</span>
+</div>
+
+<div class="card" onclick="openPage('bmiPage')">
+<span data-i18n="card_bmi_calculator">BMI Calculator</span>
+</div>
+
+<div class="card" onclick="openPage('interactionPage')">
+<span data-i18n="card_drug_interaction">Drug Interaction</span>
+</div>
+
+<div class="card" onclick="openPage('reminderPage')">
+<span data-i18n="card_medication_reminder">Medication Reminder</span>
+</div>
+
+<div class="card" onclick="openPage('pillIdentifierPage')">
+<span data-i18n="card_pill_identifier">Pill Identifier</span>
+</div>
+
+<div class="card" onclick="openPage('firstAidPage')">
+<span data-i18n="card_first_aid">First Aid</span>
+</div>
+
+<div class="card" onclick="openPage('diseaseGuidePage')">
+<span data-i18n="card_disease_guide">Disease Guide</span>
+</div>
+
+<div class="card" onclick="openPage('guidelinesPage')">
+<span data-i18n="card_clinical_guidelines">Clinical Guidelines</span>
+</div>
+
+<div class="card" onclick="openPage('availabilityPage')">
+<span data-i18n="card_availability">Drug Availability Checker</span>
+</div>
+
+<div class="card" onclick="openPage('alternativesPage')">
+<span data-i18n="card_alternatives">Alternative Drugs</span>
+</div>
+
+<div class="card" onclick="openPage('notesPage')">
+<span data-i18n="card_medical_notes">Medical Notes</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- MEDICAL CALCULATORS LIST -->
+
+<div id="medicalCalcPage" class="container page">
+
+<h3 data-i18n="medical_calc_title">Medical Calculators</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+
+<div class="grid">
+
+<div class="card" onclick="openPage('dosePage')">
+<span data-i18n="calc_dose_by_weight">Dose by Weight Calculator</span>
+</div>
+
+<div class="card" onclick="openPage('pediatricDosePage')">
+<span data-i18n="calc_pediatric_dose">Pediatric Dose Calculator</span>
+</div>
+
+<div class="card" onclick="openPage('ivDripRatePage')">
+<span data-i18n="calc_iv_drip">IV Drip Rate Calculator</span>
+</div>
+
+<div class="card" onclick="openPage('bmiPage')">
+BMI Calculator
+</div>
+
+<div class="card" onclick="openPage('crclPage')">
+<span data-i18n="calc_crcl">Creatinine Clearance (Cockcroft-Gault)</span>
+</div>
+
+<div class="card" onclick="openPage('bsaPage')">
+<span data-i18n="calc_bsa">Body Surface Area (BSA)</span>
+</div>
+
+<div class="card" onclick="openPage('infusionRatePage')">
+<span data-i18n="calc_infusion_rate">Infusion Rate Calculator</span>
+</div>
+
+<div class="card" onclick="openPage('paracetamolDosePage')">
+<span data-i18n="calc_paracetamol_safe">Paracetamol Safe Dose</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- CALCULATOR DETAIL PAGES (PLACEHOLDERS) -->
+
+<div id="pediatricDosePage" class="container page">
+
+<h3 data-i18n="pediatric_title">Pediatric Dose Calculator</h3>
+<button class="back-btn" onclick="goBack('medicalCalcPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="pediatric_desc">Calculate a pediatric dose using weight and mg/kg.</p>
+
+<input id="pedWeight" data-i18n-placeholder="ped_weight_ph" placeholder="Weight (kg)">
+<input id="pedMgKg" data-i18n-placeholder="ped_mgkg_ph" placeholder="Dose (mg/kg per dose)">
+<input id="pedMaxDose" data-i18n-placeholder="ped_max_ph" placeholder="Optional max single dose (mg)">
+<button onclick="calculatePediatricDose()" data-i18n="ped_calc_btn">Calculate</button>
+<div id="pedResult" class="result"></div>
+
+</div>
+
+<div id="ivDripRatePage" class="container page">
+
+<h3 data-i18n="ivdrip_title">IV Drip Rate Calculator</h3>
+<button class="back-btn" onclick="goBack('medicalCalcPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="iv_desc">Calculate drip rate (gtt/min) and pump rate (mL/hr).</p>
+
+<input id="ivVolume" data-i18n-placeholder="iv_volume_ph" placeholder="Total volume (mL)">
+<input id="ivTimeMin" data-i18n-placeholder="iv_time_ph" placeholder="Time (minutes)">
+<input id="ivDropFactor" data-i18n-placeholder="iv_drop_ph" placeholder="Drop factor (gtt/mL), e.g. 15 or 20 or 60">
+<button onclick="calculateIVDrip()" data-i18n="iv_calc_btn">Calculate</button>
+<div id="ivResult" class="result"></div>
+
+</div>
+
+<div id="crclPage" class="container page">
+
+<h3 data-i18n="crcl_title">Creatinine Clearance (Cockcroft-Gault)</h3>
+<button class="back-btn" onclick="goBack('medicalCalcPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="crcl_desc">Estimate creatinine clearance (mL/min) using Cockcroft–Gault.</p>
+
+<input id="crclAge" data-i18n-placeholder="crcl_age_ph" placeholder="Age (years)">
+<input id="crclWeight" data-i18n-placeholder="crcl_weight_ph" placeholder="Weight (kg)">
+<input id="crclScr" data-i18n-placeholder="crcl_scr_ph" placeholder="Serum creatinine (mg/dL)">
+<select id="crclSex" class="form-select">
+  <option value="male" data-i18n="sex_male">Male</option>
+  <option value="female" data-i18n="sex_female">Female</option>
+</select>
+<button onclick="calculateCrCl()" data-i18n="crcl_calc_btn">Calculate</button>
+<div id="crclResult" class="result"></div>
+
+</div>
+
+<div id="bsaPage" class="container page">
+
+<h3 data-i18n="bsa_title">Body Surface Area (BSA)</h3>
+<button class="back-btn" onclick="goBack('medicalCalcPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="bsa_desc">Calculate BSA using the Mosteller formula.</p>
+
+<input id="bsaHeight" data-i18n-placeholder="bsa_height_ph" placeholder="Height (cm)">
+<input id="bsaWeight" data-i18n-placeholder="bsa_weight_ph" placeholder="Weight (kg)">
+<button onclick="calculateBSA()" data-i18n="bsa_calc_btn">Calculate</button>
+<div id="bsaResult" class="result"></div>
+
+</div>
+
+<div id="infusionRatePage" class="container page">
+
+<h3 data-i18n="infusion_title">Infusion Rate Calculator</h3>
+<button class="back-btn" onclick="goBack('medicalCalcPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="inf_desc">Calculate infusion pump rate (mL/hr) from dose and concentration.</p>
+
+<input id="infDose" data-i18n-placeholder="inf_dose_ph" placeholder="Dose rate (mg/hr)">
+<input id="infConc" data-i18n-placeholder="inf_conc_ph" placeholder="Concentration (mg/mL)">
+<button onclick="calculateInfusionRate()" data-i18n="inf_calc_btn">Calculate</button>
+<div id="infResult" class="result"></div>
+
+</div>
+
+<div id="paracetamolDosePage" class="container page">
+
+<h3 data-i18n="para_safe_title">Paracetamol Safe Dose</h3>
+<button class="back-btn" onclick="goBack('medicalCalcPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="para_desc">Estimate maximum safe dosing guidance (educational only).</p>
+
+<input id="paraWeight" data-i18n-placeholder="para_weight_ph" placeholder="Weight (kg)">
+<select id="paraGroup" class="form-select">
+  <option value="child" data-i18n="para_child">Child</option>
+  <option value="adult" data-i18n="para_adult">Adult</option>
+</select>
+<button onclick="calculateParacetamolSafe()" data-i18n="para_calc_btn">Calculate</button>
+<div id="paraResult" class="result"></div>
+
+</div>
+
+<!-- DOSE CALCULATOR -->
+
+<div id="dosePage" class="container page">
+
+<h3 data-i18n="dose_title">Dose Calculator</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+
+<input id="drug" data-i18n-placeholder="dose_drug_ph" placeholder="Drug Name">
+
+<input id="weight" data-i18n-placeholder="dose_weight_ph" placeholder="Weight kg">
+
+<button onclick="calculateDose()" data-i18n="dose_calc_btn">Calculate</button>
+
+<div id="doseResult" class="result"></div>
+
+<h4 class="section-heading" data-i18n="side_effect_title">Side Effect Checker</h4>
+<p data-i18n="side_effect_desc">Type a symptom (e.g., cough, bleeding, nausea) and the app suggests possible drug-related causes (educational only).</p>
+<input id="symptomInput" data-i18n-placeholder="side_effect_ph" placeholder="Symptom (e.g. cough, bleeding)">
+<button onclick="checkSideEffect()" data-i18n="side_effect_btn">Check Side Effect</button>
+<div id="sideEffectResult" class="result"></div>
+
+</div>
+
+<!-- BMI -->
+
+<div id="bmiPage" class="container page">
+
+<h3 data-i18n="bmi_title">BMI Calculator</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+
+<input id="height" data-i18n-placeholder="bmi_height_ph" placeholder="Height cm">
+
+<input id="bmiweight" data-i18n-placeholder="bmi_weight_ph" placeholder="Weight kg">
+
+<button onclick="calculateBMI()" data-i18n="bmi_calc_btn">Calculate BMI</button>
+
+<div id="bmiResult" class="result"></div>
+
+</div>
+
+<!-- DRUG INTERACTION -->
+
+<div id="interactionPage" class="container page">
+
+<h3 data-i18n="interaction_title">Drug Interaction</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+
+<input id="interactionDrug1" data-i18n-placeholder="interaction_drug1_ph" placeholder="Drug 1">
+<input id="interactionDrug2" data-i18n-placeholder="interaction_drug2_ph" placeholder="Drug 2">
+
+<button onclick="checkInteraction()" data-i18n="interaction_btn">Check Interaction</button>
+<div id="interactionResult" class="result"></div>
+
+</div>
+
+<!-- DRUG & HERB LIBRARY -->
+
+<div id="libraryPage" class="container page">
+
+<h3 data-i18n="library_title">Drug & Herbal Library</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="library_desc">A quick library of common drugs and herbs, with simple drug search.</p>
+
+<h4 data-i18n="library_search_title">🔍 Drug Search</h4>
+<input id="drugSearchInput" data-i18n-placeholder="library_search_ph" placeholder="Example: Paracetamol">
+<button onclick="searchDrug()" data-i18n="library_search_btn">Search Drug</button>
+<div id="drugInfoResult" class="result"></div>
+
+<h4 data-i18n="library_common_title">💊 Common Drugs</h4>
+<div class="result" id="libraryCommonContent"></div>
+
+<h4 data-i18n="library_herbs_title">🌿 Herbal Section</h4>
+<div class="result" id="libraryHerbsContent"></div>
+
+</div>
+
+<!-- PILL IDENTIFIER -->
+
+<div id="pillIdentifierPage" class="container page">
+
+<h3 data-i18n="pill_title">Pill Identifier</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="pill_desc">Enter pill color, shape, and imprint to help identify the medication.</p>
+
+<input id="pillColor" data-i18n-placeholder="pill_color_ph" placeholder="Color (e.g. White)">
+<input id="pillShape" data-i18n-placeholder="pill_shape_ph" placeholder="Shape (e.g. Round)">
+<input id="pillImprint" data-i18n-placeholder="pill_imprint_ph" placeholder="Imprint letters/numbers">
+
+<button onclick="identifyPill()" data-i18n="pill_btn">Identify Pill</button>
+
+<div id="pillResult" class="result"></div>
+
+</div>
+
+<!-- FIRST AID -->
+
+<div id="firstAidPage" class="container page">
+
+<h3 data-i18n="firstaid_title">First Aid</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="firstaid_desc">Quick tips for common situations. This is not a substitute for a clinician or emergency services.</p>
+
+<div class="result" id="firstAidContent"></div>
+
+</div>
+
+<!-- DISEASE GUIDE -->
+
+<div id="diseaseGuidePage" class="container page">
+
+<h3 data-i18n="disease_title">Disease Guide</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="disease_desc">A brief guide to common diseases. Educational only and not a substitute for medical advice.</p>
+
+<div class="result" id="diseaseContent"></div>
+
+</div>
+
+<!-- CLINICAL GUIDELINES -->
+
+<div id="guidelinesPage" class="container page">
+
+<h3 data-i18n="guidelines_title">Clinical Guidelines</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="guidelines_desc">Simplified summaries for education only. Always refer to up-to-date official guidelines.</p>
+
+<div class="result" id="guidelinesContent"></div>
+
+</div>
+
+<!-- DRUG AVAILABILITY CHECKER -->
+
+<div id="availabilityPage" class="container page">
+
+<h3 data-i18n="availability_title">Drug Availability Checker</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="availability_desc">Type a drug name to check availability, brand names, and alternatives (simple demo).</p>
+
+<input id="availabilityInput" data-i18n-placeholder="availability_ph" placeholder="Example: Paracetamol, Augmentin">
+<button onclick="checkAvailability()" data-i18n="availability_btn">Check Availability</button>
+<div id="availabilityResult" class="result"></div>
+
+</div>
+
+<!-- ALTERNATIVE DRUGS -->
+
+<div id="alternativesPage" class="container page">
+
+<h3 data-i18n="alternatives_title">Alternative Drugs</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="alternatives_desc">Type a drug name (e.g., Augmentin) to see possible alternatives (educational only; prescriber decides).</p>
+
+<input id="alternativeInput" data-i18n-placeholder="alternatives_ph" placeholder="Example: Augmentin">
+<button onclick="findAlternatives()" data-i18n="alternatives_btn">Find Alternatives</button>
+<div id="alternativeResult" class="result"></div>
+
+</div>
+
+<!-- MEDICAL NOTES -->
+
+<div id="notesPage" class="container page">
+
+<h3 data-i18n="notes_title">Medical Notes</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="notes_desc">A place to save pharmacist notes or patient info (stored locally on this device only).</p>
+
+<textarea id="notesArea" class="notes-textarea" rows="8" placeholder=""></textarea>
+<button onclick="saveNotes()" data-i18n="notes_btn">Save Notes</button>
+<div id="notesStatus" class="result"></div>
+
+</div>
+
+<!-- REMINDER -->
+
+<div id="reminderPage" class="container page">
+
+<h3 data-i18n="reminder_title">Medication Reminder</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+
+<input id="remDrug" data-i18n-placeholder="reminder_drug_ph" placeholder="Drug Name">
+<input id="remTime" data-i18n-placeholder="reminder_time_ph" placeholder="Time (e.g., 08:00 AM)">
+
+<button onclick="addReminder()" data-i18n="reminder_btn">Add Reminder</button>
+<div id="reminderList" class="result"></div>
+
+</div>
+
+<!-- ACCOUNT -->
+
+<div id="accountPage" class="container page">
+
+<h3 data-i18n="profile_title">Profile</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="profile_desc">Enter your basic information for the app to use.</p>
+
+<input id="profileName" data-i18n-placeholder="profile_name_ph" placeholder="Name">
+<input id="profileAge" data-i18n-placeholder="profile_age_ph" placeholder="Age">
+<input id="profileBlood" data-i18n-placeholder="profile_blood_ph" placeholder="Blood Group (e.g. O+)">
+<input id="profileDiseases" data-i18n-placeholder="profile_diseases_ph" placeholder="Chronic Diseases">
+<input id="profileMedications" data-i18n-placeholder="profile_meds_ph" placeholder="Current Medications">
+<input id="profileAllergies" data-i18n-placeholder="profile_allergies_ph" placeholder="Allergies">
+
+<button onclick="saveProfile()" data-i18n="profile_btn">Save Profile</button>
+
+<div id="profileStatus" class="result"></div>
+
+</div>
+
+<!-- CAMERA -->
+
+<div id="cameraPage" class="container page">
+
+<h3 data-i18n="camera_title">Camera Tools</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+
+<h4 data-i18n="camera_prescription_title">📷 Prescription Scanner</h4>
+<p data-i18n="camera_prescription_desc">Choose a method: open the camera or upload an image from your device.</p>
+
+<div class="camera-actions">
+<button onclick="startCamera()" data-i18n="camera_open_btn">Open Camera</button>
+<button onclick="document.getElementById('imageInput').click()" data-i18n="camera_upload_btn">Upload Image</button>
+</div>
+
+<input id="imageInput" class="visually-hidden-input" type="file" accept="image/*" onchange="handleImageUpload(event)">
+
+<div class="camera-preview">
+<video id="cameraVideo" class="camera-video" autoplay playsinline></video>
+<img id="cameraImagePreview" class="camera-image-preview" alt="">
+</div>
+
+<div id="cameraStatus" class="result"></div>
+
+<h4 class="section-heading section-heading--loose" data-i18n="barcode_title">🏷️ Drug Barcode Scanner</h4>
+<p data-i18n="barcode_desc">Point the camera to the barcode (demo), or type the barcode manually.</p>
+
+<input id="barcodeInput" data-i18n-placeholder="barcode_ph" placeholder="Example: 1234567890123">
+<button onclick="scanBarcode()" data-i18n="barcode_btn">Scan / Lookup</button>
+
+<div id="barcodeResult" class="result"></div>
+
+</div>
+
+<!-- PHARMACY LOCATOR -->
+
+<div id="pharmacyLocatorPage" class="container page">
+
+    <h3 data-i18n="locator_title">Pharmacy Locator</h3>
+
+    <button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">
+        ← Back
+    </button>
+
+    <p data-i18n="locator_desc">
+        Find nearby pharmacies and hospitals using your location.
+    </p>
+
+    <div class="camera-actions">
+        <button onclick="showNearby('pharmacy')" data-i18n="locator_pharm_btn">
+            Nearby Pharmacies
+        </button>
+
+        <button onclick="showNearby('hospital')" data-i18n="locator_hosp_btn">
+            Nearby Hospitals
+        </button>
+    </div>
+
+    <div id="locatorStatus" class="result"></div>
+
+    <!-- Map Box -->
+    <div id="mapContainer" style="margin-top:20px;">
+        <iframe
+            id="mapFrame"
+            width="100%"
+            height="450"
+            style="border:none;border-radius:12px;"
+            loading="eager"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</div>
+
+<script>
+function showNearby(type) {
+    const status = document.getElementById("locatorStatus");
+
+    if (!navigator.geolocation) {
+        status.innerHTML = "Geolocation is not supported by your browser.";
+        return;
+    }
+
+    status.innerHTML = "Getting your location...";
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+
+            status.innerHTML = "";
+
+            const query = type === "pharmacy"
+                ? "pharmacy"
+                : "hospital";
+
+            document.getElementById("mapFrame").src =
+                `https://www.google.com/maps?q=${query}&near=${lat},${lng}&output=embed`;
+        },
+        function() {
+            status.innerHTML = "Unable to retrieve your location.";
+        }
+    );
+}
+</script>
+
+</div>
+
+<!-- DRUG NEWS -->
+
+<div id="drugNewsPage" class="container page">
+
+<h3 data-i18n="news_title">Drug News</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="news_desc">Latest drug news (live). Data is pulled from public FDA OpenFDA endpoints when available.</p>
+
+<div class="camera-actions">
+<button onclick="loadDrugNews()" data-i18n="news_refresh_btn">Refresh News</button>
+</div>
+
+<div class="result" id="drugNewsList">Loading...</div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav" aria-label="Main">
+
+<button type="button" class="bottom-nav-item" onclick="openPage('dashboardPage')">
+<span class="bottom-nav-icon" aria-hidden="true">🏠</span>
+<span class="bottom-nav-label" data-i18n="nav_dashboard">Dashboard</span>
+</button>
+
+<button type="button" class="bottom-nav-item" onclick="openPage('cameraPage')">
+<span class="bottom-nav-icon" aria-hidden="true">📷</span>
+<span class="bottom-nav-label" data-i18n="nav_camera">Camera</span>
+</button>
+
+<button type="button" class="bottom-nav-item" onclick="openPage('libraryPage')">
+<span class="bottom-nav-icon" aria-hidden="true">💊</span>
+<span class="bottom-nav-label" data-i18n="nav_drugs">Drugs</span>
+</button>
+
+<button type="button" class="bottom-nav-item" onclick="openPage('accountPage')">
+<span class="bottom-nav-icon" aria-hidden="true">👤</span>
+<span class="bottom-nav-label" data-i18n="nav_account">Account</span>
+</button>
+
+<button type="button" class="bottom-nav-item" onclick="openPage('pharmacyLocatorPage')">
+<span class="bottom-nav-icon" aria-hidden="true">🗺️</span>
+<span class="bottom-nav-label" data-i18n="nav_locator">Locator</span>
+</button>
+
+<button type="button" class="bottom-nav-item" onclick="openPage('drugNewsPage')">
+<span class="bottom-nav-icon" aria-hidden="true">📰</span>
+<span class="bottom-nav-label" data-i18n="nav_news">News</span>
+</button>
+
+</nav>
+
+<script src="drug-data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
