@@ -176,6 +176,28 @@ library_stats:"{count} medicines in {categories} illness categories",
 library_herbs_title:"🌿 Herbal & Natural Remedies",
 library_browse_title:"Browse by Illness Category",
 library_view_all:"All",
+cat_pain_fever:"Pain, Fever & Inflammation",
+cat_infection:"Infections & Antibiotics",
+cat_cardiovascular:"Heart, BP & Cholesterol",
+cat_diabetes:"Diabetes & Metabolic",
+cat_respiratory:"Asthma, COPD & Cough",
+cat_mental_health:"Depression, Anxiety & Sleep",
+cat_gi:"Stomach & Digestion",
+cat_allergy_skin:"Allergies, Skin & Eyes",
+cat_hormones:"Thyroid, Hormones & Reproductive",
+cat_neurology:"Migraine, Seizures & Nerve Pain",
+cat_urology:"Kidney, Bladder & Prostate",
+cat_blood:"Blood, Clotting & Anemia",
+cat_immunology:"Autoimmune & Immunology",
+cat_vitamins:"Vitamins & Supplements",
+cat_herbal:"Herbal & Natural Remedies",
+library_category_label:"Category",
+library_pronunciation:"Arabic pronunciation",
+library_what_treats:"What it treats",
+library_typical_dose:"Typical dose",
+library_side_effects:"Side effects",
+library_herbal_tag:"Herbal / natural remedy",
+library_full_details:"Full details",
 pill_title:"Pill Identifier",
 pill_desc:"Enter pill color, shape, and imprint to help identify the medication.",
 pill_color_ph:"Color (e.g., White)",
@@ -300,13 +322,37 @@ interaction_title:"تداخلات دوائية",
 interaction_drug1_ph:"الدواء 1",
 interaction_drug2_ph:"الدواء 2",
 interaction_btn:"تحقق",
-library_title:"مكتبة الأدوية والأعشاب",
-library_desc:"مكتبة مختصرة لأدوية وأعشاب شائعة مع بحث بسيط.",
-library_search_title:"🔍 بحث عن دواء",
-library_search_ph:"مثال: Paracetamol",
+library_title:"مكتبة الأدوية",
+library_desc:"تصفّح أكثر من 200 دواء حسب فئة المرض، أو ابحث عن أي دواء، أو استكشف قسم الأعشاب.",
+library_search_ph:"ابحث عن اسم الدواء...",
 library_search_btn:"بحث",
-library_common_title:"💊 أدوية شائعة",
-library_herbs_title:"🌿 قسم الأعشاب",
+library_stats:"{count} دواء في {categories} فئة مرض",
+library_herbs_title:"🌿 الأعشاب والعلاجات الطبيعية",
+library_browse_title:"تصفح حسب فئة المرض",
+library_view_all:"الكل",
+cat_pain_fever:"الألم والحمى والالتهاب",
+cat_infection:"العدوى والمضادات الحيوية",
+cat_cardiovascular:"القلب وضغط الدم والكوليسترول",
+cat_diabetes:"السكري والأيض",
+cat_respiratory:"الربو وانسداد الرئة والسعال",
+cat_mental_health:"الاكتئاب والقلق والنوم",
+cat_gi:"المعدة والهضم",
+cat_allergy_skin:"الحساسية والجلد والعيون",
+cat_hormones:"الغدد والهرمونات والتناسل",
+cat_neurology:"الصداع النصفي والصرع وآلام الأعصاب",
+cat_urology:"الكلى والمثانة والبروستات",
+cat_blood:"الدم والتخثر وفقر الدم",
+cat_immunology:"المناعة الذاتية والمناعة",
+cat_vitamins:"الفيتامينات والمكملات",
+cat_herbal:"الأعشاب والعلاجات الطبيعية",
+library_category_label:"الفئة",
+library_pronunciation:"النطق بالعربي",
+library_what_treats:"ما يعالجه",
+library_typical_dose:"الجرعة المعتادة",
+library_side_effects:"الآثار الجانبية",
+library_herbal_tag:"🌿 عشب / علاج طبيعي",
+library_full_details:"التفاصيل الكاملة",
+card_medicine_library:"مكتبة الأدوية (200+)",
 pill_title:"التعرف على الحبة",
 pill_desc:"أدخل اللون والشكل والحروف للمساعدة في تحديد الدواء.",
 pill_color_ph:"اللون (مثال: أبيض)",
@@ -731,11 +777,32 @@ return ox-oy;
 return hits[0];
 }
 
+function getCurrentLang(){
+return (window.localStorage && localStorage.getItem("pharmaLang")) || "en";
+}
+
+function getDrugArabicPronunciation(d){
+if(!d)return "";
+if(typeof getDrugPronunciationAr==="function")return getDrugPronunciationAr(d);
+if(d.pronunciationAr)return d.pronunciationAr;
+if(typeof transliterateDrugNameToArabic==="function"){
+return transliterateDrugNameToArabic(d.displayName||d.id||"");
+}
+return "";
+}
+
+function formatPronunciationLine(d){
+let pron=getDrugArabicPronunciation(d);
+if(!pron)return "";
+return "<strong>"+escapeHtml(t("library_pronunciation"))+":</strong> <span class=\"drug-pronunciation-ar\" dir=\"rtl\" lang=\"ar\">"+escapeHtml(pron)+"</span><br>";
+}
+
 function formatDrugCardHtml(d){
 if(!d)return "";
 let html="";
 html+="<strong>Name:</strong> "+escapeHtml(d.displayName||d.name||"")+"<br>";
-html+="<strong>Category:</strong> "+escapeHtml(getCategoryLabel(d.category)||"General")+"<br>";
+html+=formatPronunciationLine(d);
+html+="<strong>"+escapeHtml(t("library_category_label")||"Category")+":</strong> "+escapeHtml(getCategoryDisplay(d.category)||"General")+"<br>";
 html+="<strong>Use:</strong> "+escapeHtml(d.use||"")+"<br>";
 html+="<strong>Dose:</strong> "+escapeHtml(d.dose||"")+"<br>";
 html+="<strong>Limits / max:</strong> "+escapeHtml(d.max||"")+"<br>";
@@ -748,11 +815,33 @@ return html;
 }
 
 function getCategoryLabel(catId){
+if(!catId)return "";
+let fallbackName=catId;
 let cats=typeof PHARMACARE_CATEGORIES!=="undefined"?PHARMACARE_CATEGORIES:[];
 for(let i=0;i<cats.length;i++){
-if(cats[i].id===catId)return cats[i].icon+" "+cats[i].name;
+if(cats[i].id===catId){
+fallbackName=cats[i].name;
+break;
 }
-return catId||"";
+}
+let key="cat_"+catId;
+let label=t(key);
+if(!label||label===key)label=fallbackName;
+return label;
+}
+
+function getCategoryIcon(catId){
+let cats=typeof PHARMACARE_CATEGORIES!=="undefined"?PHARMACARE_CATEGORIES:[];
+for(let i=0;i<cats.length;i++){
+if(cats[i].id===catId)return cats[i].icon||"";
+}
+return "";
+}
+
+function getCategoryDisplay(catId){
+let icon=getCategoryIcon(catId);
+let label=getCategoryLabel(catId);
+return icon?icon+" "+label:label;
 }
 
 var libraryActiveCategory="all";
@@ -785,17 +874,24 @@ return;
 }
 let html="";
 drugs.forEach(function(d){
+let pron=getDrugArabicPronunciation(d);
 html+="<details class='library-drug-item'>";
 html+="<summary><span class='library-drug-name'>"+escapeHtml(d.displayName||d.id)+"</span>";
+if(pron){
+html+="<span class='library-drug-pronunciation' dir='rtl' lang='ar'>"+escapeHtml(pron)+"</span>";
+}
 html+="<span class='library-drug-use'>"+escapeHtml(d.use||"")+"</span></summary>";
 html+="<div class='library-drug-body'>";
-html+="<p><strong>What it treats:</strong> "+escapeHtml(d.use||"")+"</p>";
-html+="<p><strong>Typical dose:</strong> "+escapeHtml(d.dose||"")+"</p>";
-html+="<p><strong>Side effects:</strong> "+escapeHtml(d.side||"")+"</p>";
+if(pron){
+html+="<p class='library-pronunciation-row'><strong>"+escapeHtml(t("library_pronunciation"))+":</strong> <span class='drug-pronunciation-ar' dir='rtl' lang='ar'>"+escapeHtml(pron)+"</span></p>";
+}
+html+="<p><strong>"+escapeHtml(t("library_what_treats"))+":</strong> "+escapeHtml(d.use||"")+"</p>";
+html+="<p><strong>"+escapeHtml(t("library_typical_dose"))+":</strong> "+escapeHtml(d.dose||"")+"</p>";
+html+="<p><strong>"+escapeHtml(t("library_side_effects"))+":</strong> "+escapeHtml(d.side||"")+"</p>";
 if(d.isHerbal){
-html+="<p class='library-herbal-tag'>🌿 Herbal / natural remedy</p>";
+html+="<p class='library-herbal-tag'>"+escapeHtml(t("library_herbal_tag"))+"</p>";
 }else{
-html+="<button type='button' class='library-detail-btn' onclick=\"showDrugDetail('"+String(d.id).replace(/\\/g,"").replace(/'/g,"\\'")+"')\">Full details</button>";
+html+="<button type='button' class='library-detail-btn' onclick=\"showDrugDetail('"+String(d.id).replace(/\\/g,"").replace(/'/g,"\\'")+"')\">"+escapeHtml(t("library_full_details"))+"</button>";
 }
 html+="</div></details>";
 });
@@ -827,7 +923,7 @@ statsEl.textContent=statsText.replace("{count}",total).replace("{categories}",ca
 if(navEl){
 let html="<button type='button' class='library-cat-btn"+(libraryActiveCategory==="all"?" active":"")+"' onclick=\"setLibraryCategory('all')\">"+escapeHtml(t("library_view_all")||"All")+"</button>";
 cats.forEach(function(c){
-html+="<button type='button' class='library-cat-btn"+(libraryActiveCategory===c.id?" active":"")+"' onclick=\"setLibraryCategory('"+c.id+"')\">"+escapeHtml(c.icon+" "+c.name)+"</button>";
+html+="<button type='button' class='library-cat-btn"+(libraryActiveCategory===c.id?" active":"")+"' onclick=\"setLibraryCategory('"+c.id+"')\">"+escapeHtml(getCategoryDisplay(c.id))+"</button>";
 });
 navEl.innerHTML=html;
 }
@@ -837,10 +933,13 @@ renderLibraryCategoryContent(libraryActiveCategory);
 if(herbsEl&&herbs.length){
 let hhtml="";
 herbs.forEach(function(h){
+let herbDrug=typeof PHARMACARE_DRUG_DB!=="undefined"?PHARMACARE_DRUG_DB[h.id]:null;
+let pron=herbDrug?getDrugArabicPronunciation(herbDrug):h.name;
 hhtml+="<article class='herb-card'>";
 hhtml+="<h5>"+escapeHtml(h.name)+"</h5>";
-hhtml+="<p><strong>Use:</strong> "+escapeHtml(h.use)+"</p>";
-hhtml+="<p><strong>Dose:</strong> "+escapeHtml(h.dose)+"</p>";
+hhtml+="<p class='herb-pronunciation'><strong>"+escapeHtml(t("library_pronunciation"))+":</strong> <span dir='rtl' lang='ar'>"+escapeHtml(pron)+"</span></p>";
+hhtml+="<p><strong>"+escapeHtml(t("library_what_treats"))+":</strong> "+escapeHtml(h.use)+"</p>";
+hhtml+="<p><strong>"+escapeHtml(t("library_typical_dose"))+":</strong> "+escapeHtml(h.dose)+"</p>";
 hhtml+="<p class='herb-caution'><strong>Caution:</strong> "+escapeHtml(h.caution)+"</p>";
 hhtml+="</article>";
 });
