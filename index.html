@@ -9,13 +9,49 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<title>PharmaCare</title>
+<!-- SEO Meta Tags -->
+<meta name="description" content="PharmaCare - Your trusted medical assistant. Drug analysis, smart search, interaction checking, and AI-powered medication guidance. Access 200+ medicines and medical calculators.">
+<meta name="keywords" content="medical assistant, drug information, dosage calculator, drug interaction, pill identifier, medication reminder, pharmacy locator, medical calculators">
+<meta name="author" content="PharmaCare">
+<meta name="robots" content="index, follow">
 
+<!-- Open Graph Tags for Social Media -->
+<meta property="og:title" content="PharmaCare - Your Trusted Medical Assistant">
+<meta property="og:description" content="Comprehensive drug analysis, smart search, interaction checking, and AI-powered medication guidance - all in one place.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pharmacare.app">
+<meta property="og:image" content="https://pharmacare.app/og-image.png">
+<meta property="og:site_name" content="PharmaCare">
+
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PharmaCare - Your Trusted Medical Assistant">
+<meta name="twitter:description" content="Comprehensive drug analysis, smart search, interaction checking, and AI-powered medication guidance.">
+<meta name="twitter:image" content="https://pharmacare.app/twitter-image.png">
+
+<title>PharmaCare - Your Trusted Medical Assistant</title>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231f6fff'/%3E%3Crect x='45' y='25' width='10' height='50' fill='white'/%3E%3Crect x='25' y='45' width='50' height='10' fill='white'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
+
+<!-- Loading Screen -->
+<div id="loadingScreen" class="loading-screen">
+  <div class="loading-content">
+    <div class="loading-logo">
+      <svg class="logo-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="45" fill="#1f6fff"/>
+        <rect x="45" y="25" width="10" height="50" fill="white"/>
+        <rect x="25" y="45" width="50" height="10" fill="white"/>
+      </svg>
+    </div>
+    <div class="loading-spinner"></div>
+    <p class="loading-text" data-i18n="loading_text">Loading PharmaCare...</p>
+  </div>
+</div>
 
 <div class="header">
 
@@ -55,6 +91,38 @@ PharmaCare
 
 <div id="loginPage" class="container page active">
 
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title" data-i18n="hero_title">Your Trusted Medical Assistant</h1>
+    <p class="hero-subtitle" data-i18n="hero_subtitle">Drug analysis, smart search, interaction checking, and AI-powered assistance - all in one place</p>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="features-section">
+  <div class="feature-card">
+    <div class="feature-icon">💊</div>
+    <h3 class="feature-title" data-i18n="feature_drug_analysis">Drug Analysis</h3>
+    <p class="feature-desc" data-i18n="feature_drug_analysis_desc">Comprehensive drug information and dosage calculations</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🔍</div>
+    <h3 class="feature-title" data-i18n="feature_smart_search">Smart Search</h3>
+    <p class="feature-desc" data-i18n="feature_smart_search_desc">Quick search across 200+ medicines and herbs</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">⚠️</div>
+    <h3 class="feature-title" data-i18n="feature_interactions">Interaction Checker</h3>
+    <p class="feature-desc" data-i18n="feature_interactions_desc">Check for drug-drug interactions safely</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🤖</div>
+    <h3 class="feature-title" data-i18n="feature_ai_assistant">AI Assistant</h3>
+    <p class="feature-desc" data-i18n="feature_ai_assistant_desc">Intelligent medication guidance and support</p>
+  </div>
+</div>
+
 <div class="login-card">
 
 <div class="login-card-header">
@@ -86,6 +154,12 @@ PharmaCare
 <button type="button" class="login-btn-secondary" onclick="showSignup()" data-i18n="login_create_btn">Create Account</button>
 <button type="button" class="login-btn-ghost" onclick="login()" data-i18n="login_guest_btn">Continue as Guest</button>
 
+</div>
+
+<!-- Medical Disclaimer Banner -->
+<div class="disclaimer-banner">
+  <div class="disclaimer-icon">⚕️</div>
+  <p class="disclaimer-text" data-i18n="disclaimer_text">This app provides educational information only and does not replace professional medical advice. Always consult a doctor or pharmacist.</p>
 </div>
 
 </div>
@@ -163,6 +237,34 @@ PharmaCare
 
 <div class="card" onclick="openPage('notesPage')">
 <span data-i18n="card_medical_notes">Medical Notes</span>
+</div>
+
+<div class="card" onclick="openPage('healthTrackerPage')">
+<span data-i18n="card_health_tracker">Health Tracker</span>
+</div>
+
+<div class="card" onclick="openPage('vaccinationPage')">
+<span data-i18n="card_vaccination">Vaccination Records</span>
+</div>
+
+<div class="card" onclick="openPage('labResultsPage')">
+<span data-i18n="card_lab_results">Lab Results</span>
+</div>
+
+<div class="card" onclick="openPage('allergiesPage')">
+<span data-i18n="card_allergies">Allergy Checker</span>
+</div>
+
+<div class="card" onclick="openPage('symptomCheckerPage')">
+<span data-i18n="card_symptom_checker">Symptom Checker</span>
+</div>
+
+<div class="card" onclick="openPage('emergencyGuidePage')">
+<span data-i18n="card_emergency_guide">Emergency Guide</span>
+</div>
+
+<div class="card" onclick="openPage('drugComparisonPage')">
+<span data-i18n="card_drug_comparison">Drug Comparison</span>
 </div>
 
 </div>
@@ -480,6 +582,379 @@ BMI Calculator
 
 </div>
 
+<!-- HEALTH TRACKER -->
+
+<div id="healthTrackerPage" class="container page">
+
+<h3 data-i18n="health_tracker_title">Health Tracker</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="health_tracker_desc">Track your daily health metrics including blood pressure, heart rate, weight, and more.</p>
+
+<div class="health-metrics">
+  <div class="metric-card">
+    <h4 data-i18n="metric_bp">Blood Pressure</h4>
+    <input id="bpSystolic" placeholder="Systolic (mmHg)">
+    <input id="bpDiastolic" placeholder="Diastolic (mmHg)">
+    <button onclick="saveHealthMetric('bp')" data-i18n="metric_save">Save</button>
+  </div>
+  <div class="metric-card">
+    <h4 data-i18n="metric_heart_rate">Heart Rate</h4>
+    <input id="heartRate" placeholder="BPM">
+    <button onclick="saveHealthMetric('heart')" data-i18n="metric_save">Save</button>
+  </div>
+  <div class="metric-card">
+    <h4 data-i18n="metric_weight">Weight</h4>
+    <input id="healthWeight" placeholder="kg">
+    <button onclick="saveHealthMetric('weight')" data-i18n="metric_save">Save</button>
+  </div>
+  <div class="metric-card">
+    <h4 data-i18n="metric_glucose">Blood Glucose</h4>
+    <input id="glucose" placeholder="mg/dL">
+    <button onclick="saveHealthMetric('glucose')" data-i18n="metric_save">Save</button>
+  </div>
+</div>
+
+<div id="healthHistory" class="result"></div>
+
+</div>
+
+<!-- VACCINATION RECORDS -->
+
+<div id="vaccinationPage" class="container page">
+
+<h3 data-i18n="vaccination_title">Vaccination Records</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="vaccination_desc">Keep track of your vaccinations and upcoming booster doses.</p>
+
+<div class="vaccination-form">
+  <input id="vaccineName" data-i18n-placeholder="vaccine_name_ph" placeholder="Vaccine Name">
+  <input id="vaccineDate" type="date" data-i18n-placeholder="vaccine_date_ph" placeholder="Date">
+  <input id="vaccineNext" type="date" data-i18n-placeholder="vaccine_next_ph" placeholder="Next Dose Date">
+  <button onclick="addVaccination()" data-i18n="vaccine_add">Add Record</button>
+</div>
+
+<div id="vaccinationList" class="result"></div>
+
+</div>
+
+<!-- LAB RESULTS -->
+
+<div id="labResultsPage" class="container page">
+
+<h3 data-i18n="lab_results_title">Lab Results</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="lab_results_desc">Store and track your laboratory test results for easy reference.</p>
+
+<div class="lab-form">
+  <input id="labTestName" data-i18n-placeholder="lab_test_ph" placeholder="Test Name">
+  <input id="labTestDate" type="date" data-i18n-placeholder="lab_date_ph" placeholder="Test Date">
+  <input id="labTestValue" data-i18n-placeholder="lab_value_ph" placeholder="Result Value">
+  <input id="labTestRange" data-i18n-placeholder="lab_range_ph" placeholder="Normal Range">
+  <button onclick="addLabResult()" data-i18n="lab_add">Add Result</button>
+</div>
+
+<div id="labResultsList" class="result"></div>
+
+</div>
+
+<!-- ALLERGY CHECKER -->
+
+<div id="allergiesPage" class="container page">
+
+<h3 data-i18n="allergy_title">Allergy Checker</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="allergy_desc">Check for potential allergens in medications and foods.</p>
+
+<div class="allergy-check">
+  <input id="allergyInput" data-i18n-placeholder="allergy_input_ph" placeholder="Enter medication or food">
+  <button onclick="checkAllergy()" data-i18n="allergy_check">Check for Allergens</button>
+</div>
+
+<div id="allergyResult" class="result"></div>
+
+<h4 class="section-heading" data-i18n="my_allergies_title">My Allergies</h4>
+<div class="allergy-form">
+  <input id="myAllergy" data-i18n-placeholder="my_allergy_ph" placeholder="Add your allergy">
+  <button onclick="addMyAllergy()" data-i18n="allergy_add">Add</button>
+</div>
+<div id="myAllergiesList" class="result"></div>
+
+</div>
+
+<!-- SYMPTOM CHECKER -->
+
+<div id="symptomCheckerPage" class="container page">
+
+<h3 data-i18n="symptom_title">Symptom Checker</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="symptom_desc">Describe your symptoms to get potential causes and recommendations.</p>
+
+<div class="symptom-check">
+  <textarea id="symptomDescription" rows="4" data-i18n-placeholder="symptom_desc_ph" placeholder="Describe your symptoms..."></textarea>
+  <button onclick="checkSymptoms()" data-i18n="symptom_check">Analyze Symptoms</button>
+</div>
+
+<div id="symptomResult" class="result"></div>
+
+</div>
+
+<!-- EMERGENCY GUIDE -->
+
+<div id="emergencyGuidePage" class="container page">
+
+<h3 data-i18n="emergency_title">Emergency Guide</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="emergency_desc">Quick reference for emergency situations and first aid procedures.</p>
+
+<div class="emergency-cards">
+  <div class="emergency-card emergency-card--critical">
+    <h4 data-i18n="emergency_heart">🚨 Heart Attack</h4>
+    <p data-i18n="emergency_heart_desc">Chest pain, shortness of breath, nausea. Call emergency immediately.</p>
+  </div>
+  <div class="emergency-card emergency-card--critical">
+    <h4 data-i18n="emergency_stroke">🚨 Stroke</h4>
+    <p data-i18n="emergency_stroke_desc">Face drooping, arm weakness, speech difficulty. Act FAST.</p>
+  </div>
+  <div class="emergency-card emergency-card--urgent">
+    <h4 data-i18n="emergency_breathing">⚠️ Breathing Difficulty</h4>
+    <p data-i18n="emergency_breathing_desc">Sit upright, use inhaler if available, call emergency if severe.</p>
+  </div>
+  <div class="emergency-card emergency-card--urgent">
+    <h4 data-i18n="emergency_bleeding">⚠️ Severe Bleeding</h4>
+    <p data-i18n="emergency_bleeding_desc">Apply direct pressure, elevate if possible, call emergency.</p>
+  </div>
+  <div class="emergency-card emergency-card--info">
+    <h4 data-i18n="emergency_burns">ℹ️ Burns</h4>
+    <p data-i18n="emergency_burns_desc">Cool with running water, cover with sterile dressing, seek medical help.</p>
+  </div>
+  <div class="emergency-card emergency-card--info">
+    <h4 data-i18n="emergency_poison">ℹ️ Poisoning</h4>
+    <p data-i18n="emergency_poison_desc">Call poison control, do not induce vomiting unless instructed.</p>
+  </div>
+</div>
+
+</div>
+
+<!-- DRUG COMPARISON -->
+
+<div id="drugComparisonPage" class="container page">
+
+<h3 data-i18n="drug_comparison_title">Drug Comparison</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+<p data-i18n="drug_comparison_desc">Compare two drugs side by side to understand differences and similarities.</p>
+
+<div class="drug-compare">
+  <input id="compareDrug1" data-i18n-placeholder="compare_drug1_ph" placeholder="First Drug">
+  <input id="compareDrug2" data-i18n-placeholder="compare_drug2_ph" placeholder="Second Drug">
+  <button onclick="compareDrugs()" data-i18n="compare_btn">Compare Drugs</button>
+</div>
+
+<div id="comparisonResult" class="result"></div>
+
+</div>
+
+<!-- REMINDER -->
+
+<div id="reminderPage" class="container page">
+
+<h3 data-i18n="reminder_title">Medication Reminder</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+
+<input id="remDrug" data-i18n-placeholder="reminder_drug_ph" placeholder="Drug Name">
+<input id="remTime" data-i18n-placeholder="reminder_time_ph" placeholder="Time (e.g., 08:00 AM)">
+
+<button onclick="addReminder()" data-i18n="reminder_btn">Add Reminder</button>
+<div id="reminderList" class="result"></div>
+
+</div>
+
+<!-- FAQ -->
+
+<div id="faqPage" class="container page">
+
+<h3 data-i18n="faq_title">Frequently Asked Questions</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+
+<div class="faq-list">
+  <details class="faq-item">
+    <summary class="faq-question" data-i18n="faq_q1">Is this app a substitute for medical advice?</summary>
+    <p class="faq-answer" data-i18n="faq_a1">No. This app provides educational information only. Always consult a qualified healthcare professional for medical decisions.</p>
+  </details>
+  <details class="faq-item">
+    <summary class="faq-question" data-i18n="faq_q2">How accurate is the drug information?</summary>
+    <p class="faq-answer" data-i18n="faq_a2">Our database includes common medications and their typical uses. However, medications change frequently, and individual responses vary. Verify with official sources.</p>
+  </details>
+  <details class="faq-item">
+    <summary class="faq-question" data-i18n="faq_q3">Can I use this for emergency situations?</summary>
+    <p class="faq-answer" data-i18n="faq_a3">No. This app is not designed for emergencies. Call emergency services immediately for urgent medical situations.</p>
+  </details>
+  <details class="faq-item">
+    <summary class="faq-question" data-i18n="faq_q4">Is my data stored securely?</summary>
+    <p class="faq-answer" data-i18n="faq_a4">Your notes and profile are stored locally on your device. We do not collect or transmit personal medical data to external servers.</p>
+  </details>
+  <details class="faq-item">
+    <summary class="faq-question" data-i18n="faq_q5">How do I report an error in drug information?</summary>
+    <p class="faq-answer" data-i18n="faq_a5">Contact us through the Contact page with details about any inaccuracies. We continuously update our database based on feedback.</p>
+  </details>
+</div>
+
+</div>
+
+<!-- ABOUT US -->
+
+<div id="aboutPage" class="container page">
+
+<h3 data-i18n="about_title">About PharmaCare</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+
+<div class="about-content">
+  <div class="about-hero">
+    <div class="about-hero-icon" aria-hidden="true">⚕️</div>
+    <h4 class="about-hero-title" data-i18n="about_welcome_title">Welcome to PharmaCare</h4>
+    <p class="about-hero-desc" data-i18n="about_welcome_desc">PharmaCare is a modern healthcare companion designed to provide educational drug information, practical medical tools, and productivity features in a simple and accessible interface. The project aims to help students, healthcare professionals, and everyday users quickly access useful medical resources while maintaining an intuitive user experience.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <div class="about-card-header">
+        <span class="about-card-icon" aria-hidden="true">🎯</span>
+        <h5 data-i18n="about_mission_title">Our Mission</h5>
+      </div>
+      <p data-i18n="about_mission_desc">Our mission is to make medical information and essential healthcare utilities easier to access through technology while encouraging responsible use and consultation with qualified healthcare professionals.</p>
+    </div>
+
+    <div class="about-card">
+      <div class="about-card-header">
+        <span class="about-card-icon" aria-hidden="true">👁️</span>
+        <h5 data-i18n="about_vision_title">Project Vision</h5>
+      </div>
+      <p data-i18n="about_vision_desc">The long-term vision of PharmaCare is to become a comprehensive healthcare assistant that combines reliable educational content, smart productivity tools, medication management, and modern technology to improve access to medical knowledge.</p>
+    </div>
+  </div>
+
+  <div class="about-section-grid">
+    <div class="about-card">
+      <div class="about-card-header">
+        <span class="about-card-icon" aria-hidden="true">✨</span>
+        <h5 data-i18n="about_features_title">Key Features</h5>
+      </div>
+      <ul class="about-list">
+        <li data-i18n="about_feat_1">Drug information library</li>
+        <li data-i18n="about_feat_2">Medical calculators</li>
+        <li data-i18n="about_feat_3">Medication notes and organization tools</li>
+        <li data-i18n="about_feat_4">Dark mode support</li>
+        <li data-i18n="about_feat_5">Multilingual interface</li>
+        <li data-i18n="about_feat_6">Mobile-friendly responsive design</li>
+        <li data-i18n="about_feat_7">Progressive Web App (PWA) support</li>
+        <li data-i18n="about_feat_8">Camera and barcode-related utilities where available</li>
+      </ul>
+    </div>
+
+    <div class="about-card">
+      <div class="about-card-header">
+        <span class="about-card-icon" aria-hidden="true">💻</span>
+        <h5 data-i18n="about_tech_title">Technologies Used</h5>
+      </div>
+      <p class="about-subtitle" data-i18n="about_tech_desc">PharmaCare is built using modern web technologies, including:</p>
+      <ul class="about-list">
+        <li data-i18n="about_tech_1">HTML5</li>
+        <li data-i18n="about_tech_2">CSS3</li>
+        <li data-i18n="about_tech_3">Vanilla JavaScript</li>
+        <li data-i18n="about_tech_4">Local Storage APIs</li>
+        <li data-i18n="about_tech_5">Progressive Web App technologies</li>
+        <li data-i18n="about_tech_6">Responsive design principles</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="about-card">
+    <div class="about-card-header">
+      <span class="about-card-icon" aria-hidden="true">📚</span>
+      <h5 data-i18n="about_sources_title">Information Sources and References</h5>
+    </div>
+    <p data-i18n="about_sources_desc">The information presented in PharmaCare is compiled from educational materials, standard medical references, publicly available healthcare resources, and established clinical formulas where applicable. The project encourages verification through trusted healthcare organizations and official pharmaceutical references.</p>
+  </div>
+
+  <div class="about-card">
+    <div class="about-card-header">
+      <span class="about-card-icon" aria-hidden="true">🤝</span>
+      <h5 data-i18n="about_opensource_title">Open Source and Credits</h5>
+    </div>
+    <p data-i18n="about_opensource_desc">This project acknowledges the contributions of the open-source community and the educational resources that make modern web development possible. Any third-party libraries, icons, fonts, or external assets should be credited according to their respective licenses.</p>
+  </div>
+
+  <div class="about-warning-section">
+    <div class="about-warning-card critical">
+      <div class="about-warning-header">
+        <span aria-hidden="true">⚕️</span>
+        <h5 data-i18n="about_disclaimer_title">Medical Disclaimer</h5>
+      </div>
+      <p data-i18n="about_disclaimer_desc">PharmaCare is intended for educational and informational purposes only. It does not provide medical diagnosis, treatment, or professional healthcare advice. Users should always consult licensed physicians, pharmacists, or other qualified healthcare professionals before making medical decisions or taking medications.</p>
+    </div>
+
+    <div class="about-warning-card safe">
+      <div class="about-warning-header">
+        <span aria-hidden="true">🔒</span>
+        <h5 data-i18n="about_privacy_title">Privacy</h5>
+      </div>
+      <p data-i18n="about_privacy_desc">PharmaCare is designed to respect user privacy. Personal notes and preferences may be stored locally on the user's device. Users should avoid storing highly sensitive medical or personal information unless appropriate security measures are implemented.</p>
+    </div>
+
+    <div class="about-warning-card warning">
+      <div class="about-warning-header">
+        <span aria-hidden="true">⚠️</span>
+        <h5 data-i18n="about_accuracy_title">Accuracy and Limitations</h5>
+      </div>
+      <p data-i18n="about_accuracy_desc">Although every effort is made to improve the quality and reliability of the information provided, no guarantee is made regarding completeness or accuracy. Medical knowledge evolves continuously, and recommendations may change over time.</p>
+    </div>
+  </div>
+
+  <div class="about-footer-card">
+    <div class="about-card-header">
+      <span class="about-card-icon" aria-hidden="true">✉️</span>
+      <h5 data-i18n="about_contact_title">Contact</h5>
+    </div>
+    <div class="about-contact-content">
+      <p><strong>Developer:</strong> <span class="developer-name">Mohamed Essam</span></p>
+      <p data-i18n="about_contact_desc">For questions, feedback, bug reports, or collaboration opportunities, users are encouraged to contact the project maintainer through the project's official communication channels or repository.</p>
+    </div>
+    <div class="about-meta-info">
+      <span class="meta-item"><strong data-i18n="about_version">Version</strong>: 1.0</span>
+      <span class="meta-item"><strong data-i18n="about_last_updated">Last Updated</strong>: June 2026</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- CONTACT US -->
+
+<div id="contactPage" class="container page">
+
+<h3 data-i18n="contact_title">Contact Us</h3>
+<button class="back-btn" onclick="goBack('dashboardPage')" data-i18n="back_btn">← Back</button>
+
+<div class="contact-content">
+  <p data-i18n="contact_desc">Have questions or feedback? We'd love to hear from you.</p>
+  
+  <div class="contact-form">
+    <input id="contactName" data-i18n-placeholder="contact_name_ph" placeholder="Your Name">
+    <input id="contactEmail" data-i18n-placeholder="contact_email_ph" placeholder="Your Email">
+    <textarea id="contactMessage" rows="5" data-i18n-placeholder="contact_message_ph" placeholder="Your Message"></textarea>
+    <button onclick="submitContact()" data-i18n="contact_btn">Send Message</button>
+  </div>
+  
+  <div id="contactStatus" class="result"></div>
+  
+  <h4 class="section-heading" data-i18n="contact_info_title">Contact Information</h4>
+  <div class="contact-info">
+    <p><strong>Email:</strong> support@pharmacare.app</p>
+    <p><strong>Response Time:</strong> <span data-i18n="contact_response">Within 24-48 hours</span></p>
+  </div>
+</div>
+
+</div>
+
 <!-- REMINDER -->
 
 <div id="reminderPage" class="container page">
@@ -513,6 +988,12 @@ BMI Calculator
 <button onclick="saveProfile()" data-i18n="profile_btn">Save Profile</button>
 
 <div id="profileStatus" class="result"></div>
+
+<h4 class="section-heading section-heading--loose" data-i18n="account_links_title">Quick Links</h4>
+<div class="account-links">
+  <button type="button" class="account-link-btn" onclick="openPage('aboutPage')" data-i18n="about_link">About PharmaCare</button>
+  <button type="button" class="account-link-btn" onclick="openPage('contactPage')" data-i18n="contact_link">Contact Us</button>
+</div>
 
 </div>
 
@@ -589,6 +1070,38 @@ BMI Calculator
 </div>
 
 
+<!-- AI Assistant Floating Button -->
+<button type="button" id="aiAssistantBtn" class="ai-assistant-btn" onclick="toggleAIChat()" aria-label="Open AI Assistant">
+  <span class="ai-icon">🤖</span>
+  <span class="ai-pulse"></span>
+</button>
+
+<!-- AI Chat Interface -->
+<div id="aiChatInterface" class="ai-chat-interface">
+  <div class="ai-chat-header">
+    <h4 data-i18n="ai_chat_title">AI Medical Assistant</h4>
+    <button type="button" class="ai-close-btn" onclick="toggleAIChat()">✕</button>
+  </div>
+  <div class="ai-chat-messages" id="aiChatMessages">
+    <div class="ai-message ai-message--bot">
+      <div class="ai-message-content">
+        <p data-i18n="ai_welcome">Hello! I'm your AI medical assistant. I can help you with:</p>
+        <ul class="ai-help-list">
+          <li data-i18n="ai_help_1">Drug information and dosages</li>
+          <li data-i18n="ai_help_2">Drug interactions</li>
+          <li data-i18n="ai_help_3">Medical calculations</li>
+          <li data-i18n="ai_help_4">General health questions</li>
+        </ul>
+        <p data-i18n="ai_disclaimer">Note: This is for educational purposes only. Always consult a healthcare professional.</p>
+      </div>
+    </div>
+  </div>
+  <div class="ai-chat-input">
+    <input type="text" id="aiChatInput" placeholder="Ask me anything..." onkeypress="handleAIChatKeypress(event)">
+    <button type="button" onclick="sendAIMessage()" data-i18n="ai_send">Send</button>
+  </div>
+</div>
+
 <!-- BOTTOM NAV -->
 
 <nav class="bottom-nav" aria-label="Main">
@@ -616,6 +1129,11 @@ BMI Calculator
 <button type="button" class="bottom-nav-item" onclick="openPage('pharmacyLocatorPage')">
 <span class="bottom-nav-icon" aria-hidden="true">🗺️</span>
 <span class="bottom-nav-label" data-i18n="nav_locator">Locator</span>
+</button>
+
+<button type="button" class="bottom-nav-item" onclick="openPage('faqPage')">
+<span class="bottom-nav-icon" aria-hidden="true">❓</span>
+<span class="bottom-nav-label" data-i18n="nav_faq">FAQ</span>
 </button>
 
 </nav>

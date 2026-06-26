@@ -260,7 +260,145 @@ nav_dashboard:"Dashboard",
 nav_camera:"Camera",
 nav_drugs:"Drugs",
 nav_account:"Account",
-nav_locator:"Locator"
+nav_locator:"Locator",
+nav_faq:"FAQ",
+loading_text:"Loading PharmaCare...",
+hero_title:"Your Trusted Medical Assistant",
+hero_subtitle:"Drug analysis, smart search, interaction checking, and AI-powered assistance - all in one place",
+feature_drug_analysis:"Drug Analysis",
+feature_drug_analysis_desc:"Comprehensive drug information and dosage calculations",
+feature_smart_search:"Smart Search",
+feature_smart_search_desc:"Quick search across 200+ medicines and herbs",
+feature_interactions:"Interaction Checker",
+feature_interactions_desc:"Check for drug-drug interactions safely",
+feature_ai_assistant:"AI Assistant",
+feature_ai_assistant_desc:"Intelligent medication guidance and support",
+disclaimer_text:"This app provides educational information only and does not replace professional medical advice. Always consult a doctor or pharmacist.",
+faq_title:"Frequently Asked Questions",
+faq_q1:"Is this app a substitute for medical advice?",
+faq_a1:"No. This app provides educational information only. Always consult a qualified healthcare professional for medical decisions.",
+faq_q2:"How accurate is the drug information?",
+faq_a2:"Our database includes common medications and their typical uses. However, medications change frequently, and individual responses vary. Verify with official sources.",
+faq_q3:"Can I use this for emergency situations?",
+faq_a3:"No. This app is not designed for emergencies. Call emergency services immediately for urgent medical situations.",
+faq_q4:"Is my data stored securely?",
+faq_a4:"Your notes and profile are stored locally on your device. We do not collect or transmit personal medical data to external servers.",
+faq_q5:"How do I report an error in drug information?",
+faq_a5:"Contact us through the Contact page with details about any inaccuracies. We continuously update our database based on feedback.",
+about_title:"About PharmaCare",
+about_welcome_title:"Welcome to PharmaCare",
+about_welcome_desc:"PharmaCare is a modern healthcare companion designed to provide educational drug information, practical medical tools, and productivity features in a simple and accessible interface. The project aims to help students, healthcare professionals, and everyday users quickly access useful medical resources while maintaining an intuitive user experience.",
+about_mission_title:"Our Mission",
+about_mission_desc:"Our mission is to make medical information and essential healthcare utilities easier to access through technology while encouraging responsible use and consultation with qualified healthcare professionals.",
+about_features_title:"Key Features",
+about_feat_1:"Drug information library",
+about_feat_2:"Medical calculators",
+about_feat_3:"Medication notes and organization tools",
+about_feat_4:"Dark mode support",
+about_feat_5:"Multilingual interface",
+about_feat_6:"Mobile-friendly responsive design",
+about_feat_7:"Progressive Web App (PWA) support",
+about_feat_8:"Camera and barcode-related utilities where available",
+about_tech_title:"Technologies Used",
+about_tech_desc:"PharmaCare is built using modern web technologies, including:",
+about_tech_1:"HTML5",
+about_tech_2:"CSS3",
+about_tech_3:"Vanilla JavaScript",
+about_tech_4:"Local Storage APIs",
+about_tech_5:"Progressive Web App technologies",
+about_tech_6:"Responsive design principles",
+about_sources_title:"Information Sources and References",
+about_sources_desc:"The information presented in PharmaCare is compiled from educational materials, standard medical references, publicly available healthcare resources, and established clinical formulas where applicable. The project encourages verification through trusted healthcare organizations and official pharmaceutical references.",
+about_disclaimer_title:"Medical Disclaimer",
+about_disclaimer_desc:"PharmaCare is intended for educational and informational purposes only. It does not provide medical diagnosis, treatment, or professional healthcare advice. Users should always consult licensed physicians, pharmacists, or other qualified healthcare professionals before making medical decisions or taking medications.",
+about_privacy_title:"Privacy",
+about_privacy_desc:"PharmaCare is designed to respect user privacy. Personal notes and preferences may be stored locally on the user's device. Users should avoid storing highly sensitive medical or personal information unless appropriate security measures are implemented.",
+about_accuracy_title:"Accuracy and Limitations",
+about_accuracy_desc:"Although every effort is made to improve the quality and reliability of the information provided, no guarantee is made regarding completeness or accuracy. Medical knowledge evolves continuously, and recommendations may change over time.",
+about_opensource_title:"Open Source and Credits",
+about_opensource_desc:"This project acknowledges the contributions of the open-source community and the educational resources that make modern web development possible. Any third-party libraries, icons, fonts, or external assets should be credited according to their respective licenses.",
+about_vision_title:"Project Vision",
+about_vision_desc:"The long-term vision of PharmaCare is to become a comprehensive healthcare assistant that combines reliable educational content, smart productivity tools, medication management, and modern technology to improve access to medical knowledge.",
+about_contact_title:"Contact",
+about_contact_desc:"For questions, feedback, bug reports, or collaboration opportunities, users are encouraged to contact the project maintainer through the project's official communication channels or repository.",
+about_version:"Version",
+about_last_updated:"Last Updated",
+contact_title:"Contact Us",
+contact_desc:"Have questions or feedback? We'd love to hear from you.",
+contact_name_ph:"Your Name",
+contact_email_ph:"Your Email",
+contact_message_ph:"Your Message",
+contact_btn:"Send Message",
+contact_info_title:"Contact Information",
+contact_response:"Within 24-48 hours",
+account_links_title:"Quick Links",
+about_link:"About PharmaCare",
+contact_link:"Contact Us",
+card_health_tracker:"Health Tracker",
+card_vaccination:"Vaccination Records",
+card_lab_results:"Lab Results",
+card_allergies:"Allergy Checker",
+card_symptom_checker:"Symptom Checker",
+card_emergency_guide:"Emergency Guide",
+card_drug_comparison:"Drug Comparison",
+ai_chat_title:"AI Medical Assistant",
+ai_welcome:"Hello! I'm your AI medical assistant. I can help you with:",
+ai_help_1:"Drug information and dosages",
+ai_help_2:"Drug interactions",
+ai_help_3:"Medical calculations",
+ai_help_4:"General health questions",
+ai_disclaimer:"Note: This is for educational purposes only. Always consult a healthcare professional.",
+ai_send:"Send",
+health_tracker_title:"Health Tracker",
+health_tracker_desc:"Track your daily health metrics including blood pressure, heart rate, weight, and more.",
+metric_bp:"Blood Pressure",
+metric_heart_rate:"Heart Rate",
+metric_weight:"Weight",
+metric_glucose:"Blood Glucose",
+metric_save:"Save",
+vaccination_title:"Vaccination Records",
+vaccination_desc:"Keep track of your vaccinations and upcoming booster doses.",
+vaccine_name_ph:"Vaccine Name",
+vaccine_date_ph:"Date",
+vaccine_next_ph:"Next Dose Date",
+vaccine_add:"Add Record",
+lab_results_title:"Lab Results",
+lab_results_desc:"Store and track your laboratory test results for easy reference.",
+lab_test_ph:"Test Name",
+lab_date_ph:"Test Date",
+lab_value_ph:"Result Value",
+lab_range_ph:"Normal Range",
+lab_add:"Add Result",
+allergy_title:"Allergy Checker",
+allergy_desc:"Check for potential allergens in medications and foods.",
+allergy_input_ph:"Enter medication or food",
+allergy_check:"Check for Allergens",
+my_allergies_title:"My Allergies",
+my_allergy_ph:"Add your allergy",
+allergy_add:"Add",
+symptom_title:"Symptom Checker",
+symptom_desc:"Describe your symptoms to get potential causes and recommendations.",
+symptom_desc_ph:"Describe your symptoms...",
+symptom_check:"Analyze Symptoms",
+emergency_title:"Emergency Guide",
+emergency_desc:"Quick reference for emergency situations and first aid procedures.",
+emergency_heart:"🚨 Heart Attack",
+emergency_heart_desc:"Chest pain, shortness of breath, nausea. Call emergency immediately.",
+emergency_stroke:"🚨 Stroke",
+emergency_stroke_desc:"Face drooping, arm weakness, speech difficulty. Act FAST.",
+emergency_breathing:"⚠️ Breathing Difficulty",
+emergency_breathing_desc:"Sit upright, use inhaler if available, call emergency if severe.",
+emergency_bleeding:"⚠️ Severe Bleeding",
+emergency_bleeding_desc:"Apply direct pressure, elevate if possible, call emergency.",
+emergency_burns:"ℹ️ Burns",
+emergency_burns_desc:"Cool with running water, cover with sterile dressing, seek medical help.",
+emergency_poison:"ℹ️ Poisoning",
+emergency_poison_desc:"Call poison control, do not induce vomiting unless instructed.",
+drug_comparison_title:"Drug Comparison",
+drug_comparison_desc:"Compare two drugs side by side to understand differences and similarities.",
+compare_drug1_ph:"First Drug",
+compare_drug2_ph:"Second Drug",
+compare_btn:"Compare Drugs"
 });
 
 Object.assign(I18N.ar,{
@@ -410,7 +548,145 @@ nav_camera:"كاميرا",
 nav_drugs:"أدوية",
 nav_account:"حساب",
 nav_locator:"خريطة",
-nav_news:"أخبار"
+nav_news:"أخبار",
+nav_faq:"الأسئلة الشائعة",
+loading_text:"جاري تحميل PharmaCare...",
+hero_title:"مساعدك الطبي الموثوق",
+hero_subtitle:"تحليل الأدوية، البحث الذكي، التحقق من التداخلات، والمساعدة بالذكاء الاصطناعي - كل ذلك في مكان واحد",
+feature_drug_analysis:"تحليل الأدوية",
+feature_drug_analysis_desc:"معلومات شاملة عن الأدوية وحسابات الجرعات",
+feature_smart_search:"البحث الذكي",
+feature_smart_search_desc:"بحث سريع في أكثر من 200 دواء وعشب",
+feature_interactions:"التحقق من التداخلات",
+feature_interactions_desc:"تحقق من تداخلات الأدوية بأمان",
+feature_ai_assistant:"المساعد الذكي",
+feature_ai_assistant_desc:"إرشادات ودعم ذكي للأدوية",
+disclaimer_text:"هذا التطبيق يقدم معلومات تعليمية فقط ولا يستبدل المشورة الطبية المهنية. استشر دائماً طبيباً أو صيدلياً.",
+faq_title:"الأسئلة الشائعة",
+faq_q1:"هل هذا التطبيق بديل عن المشورة الطبية؟",
+faq_a1:"لا. هذا التطبيق يقدم معلومات تعليمية فقط. استشر دائماً متخصصاً طبياً مؤهلاً للقرارات الطبية.",
+faq_q2:"ما مدى دقة معلومات الأدوية؟",
+faq_a2:"قاعدة بياناتنا تشمل الأدوية الشائعة واستخداماتها المعتادة. ومع ذلك، تتغير الأدوية بشكل متكرر، وتختلف الاستجابات الفردية. تحقق من المصادر الرسمية.",
+faq_q3:"هل يمكنني استخدامه في حالات الطوارئ؟",
+faq_a3:"لا. هذا التطبيق غير مصمم لحالات الطوارئ. اتصل بخدمات الطوارئ فوراً للحالات الطبية العاجلة.",
+faq_q4:"هل بياناتي محفوظة بأمان؟",
+faq_a4:"ملاحظاتك وملفك الشخصي محفوظة محلياً على جهازك. نحن لا نجمع ولا ننقل البيانات الطبية الشخصية إلى خوادم خارجية.",
+faq_q5:"كيف أبلغ عن خطأ في معلومات الدواء؟",
+faq_a5:"اتصل بنا عبر صفحة التواصل مع تفاصيل حول أي عدم دقة. نحن نحدث قاعدة بياناتنا باستمرار بناءً على الملاحظات.",
+about_title:"عن PharmaCare",
+about_welcome_title:"مرحباً بكم في PharmaCare",
+about_welcome_desc:"إن PharmaCare هو رفيق رعاية صحية حديث مصمم لتقديم معلومات دوائية تعليمية، وأدوات طبية عملية، وميزات إنتاجية في واجهة بسيطة وسهلة الاستخدام. يهدف المشروع إلى مساعدة الطلاب، ومحترفي الرعاية الصحية، والمستخدمين العاديين في الوصول بسرعة إلى الموارد الطبية المفيدة مع الحفاظ على تجربة مستخدم بديهية.",
+about_mission_title:"مهمتنا",
+about_mission_desc:"تتمثل مهمتنا في تسهيل الوصول إلى المعلومات الطبية والمرافق الأساسية للرعاية الصحية من خلال التكنولوجيا، مع تشجيع الاستخدام المسؤول واستشارة محترفي الرعاية الصحية المؤهلين.",
+about_features_title:"الميزات الرئيسية",
+about_feat_1:"مكتبة معلومات الأدوية",
+about_feat_2:"الحاسبات الطبية",
+about_feat_3:"ملاحظات الأدوية وأدوات التنظيم",
+about_feat_4:"دعم الوضع الداكن",
+about_feat_5:"واجهة متعددة اللغات",
+about_feat_6:"تصميم متجاوب متوافق مع الهواتف المحمولة",
+about_feat_7:"دعم تطبيق الويب التقدمي (PWA)",
+about_feat_8:"أدوات الكاميرا والباركود عند توفرها",
+about_tech_title:"التقنيات المستخدمة",
+about_tech_desc:"تم بناء PharmaCare باستخدام تقنيات الويب الحديثة، بما في ذلك:",
+about_tech_1:"HTML5",
+about_tech_2:"CSS3",
+about_tech_3:"جافا سكريبت النقي (Vanilla JavaScript)",
+about_tech_4:"واجهات برمجة تطبيقات التخزين المحلي (Local Storage APIs)",
+about_tech_5:"تقنيات تطبيقات الويب التقدمية (PWA)",
+about_tech_6:"مبادئ التصميم المتجاوب",
+about_sources_title:"مصادر المعلومات والمراجع",
+about_sources_desc:"تم تجميع المعلومات المقدمة في PharmaCare من المواد التعليمية، والمراجع الطبية القياسية، وموارد الرعاية الصحية المتاحة للجمهور، والمعادلات السريرية المعترف بها عند الاقتضاء. يشجع المشروع على التحقق من خلال منظمات الرعاية الصحية الموثوقة والمراجع الدوائية الرسمية.",
+about_disclaimer_title:"إخلاء المسؤولية الطبي",
+about_disclaimer_desc:"تم تصميم PharmaCare للأغراض التعليمية والمعلوماتية فقط. ولا يقدم تشخيصاً طبياً أو علاجاً أو مشورة رعاية صحية مهنية. يجب على المستخدمين دائماً استشارة الأطباء أو الصيادلة المرخصين أو غيرهم من محترفي الرعاية الصحية المؤهلين قبل اتخاذ القرارات الطبية أو تناول الأدوية.",
+about_privacy_title:"الخصوصية",
+about_privacy_desc:"تم تصميم PharmaCare لاحترام خصوصية المستخدمين. قد يتم تخزين الملاحظات والتفضيلات الشخصية محلياً على جهاز المستخدم. يجب على المستخدمين تجنب تخزين معلومات طبية أو شخصية حساسة للغاية ما لم يتم تطبيق تدابير أمنية مناسبة.",
+about_accuracy_title:"الدقة والقيود",
+about_accuracy_desc:"على الرغم من بذل كل جهد ممكن لتحسين جودة وموثوقية المعلومات المقدمة، لا يتم تقديم أي ضمان فيما يتعلق بالاكتمال أو الدقة. تتطور المعرفة الطبية باستمرار، وقد تتغير التوصيات بمرور الوقت.",
+about_opensource_title:"المصدر المفتوح والائتمان",
+about_opensource_desc:"يقر هذا المشروع بمساهمات مجتمع المصادر المفتوحة والموارد التعليمية التي تجعل تطوير الويب الحديث ممكناً. يجب الإشارة إلى أي مكتبات أو أيقونات أو خطوط أو أصول خارجية تابعة لجهات خارجية وفقاً لتراخيصها الخاصة.",
+about_vision_title:"رؤية المشروع",
+about_vision_desc:"الرؤية طويلة المدى لـ PharmaCare هي أن تصبح مساعداً شاملاً للرعاية الصحية يجمع بين المحتوى التعليمي الموثوق وأدوات الإنتاجية الذكية وإدارة الأدوية والتكنولوجيا الحديثة لتحسين الوصول إلى المعرفة الطبية.",
+about_contact_title:"الاتصال",
+about_contact_desc:"للأسئلة أو التعليقات أو تقارير الأخطاء أو فرص التعاون، يُشجع المستخدمون على الاتصال بمسؤول صيانة المشروع من خلال قنوات الاتصال الرسمية للمشروع أو المستودع.",
+about_version:"الإصدار",
+about_last_updated:"آخر تحديث",
+contact_title:"تواصل معنا",
+contact_desc:"لديك أسئلة أو ملاحظات؟ نود سماعها منك.",
+contact_name_ph:"اسمك",
+contact_email_ph:"بريدك الإلكتروني",
+contact_message_ph:"رسالتك",
+contact_btn:"إرسال الرسالة",
+contact_info_title:"معلومات التواصل",
+contact_response:"خلال 24-48 ساعة",
+account_links_title:"روابط سريعة",
+about_link:"عن PharmaCare",
+contact_link:"تواصل معنا",
+card_health_tracker:"تتبع الصحة",
+card_vaccination:"سجلات التطعيم",
+card_lab_results:"نتائج المختبر",
+card_allergies:"فاحص الحساسية",
+card_symptom_checker:"فاحص الأعراض",
+card_emergency_guide:"دليل الطوارئ",
+card_drug_comparison:"مقارنة الأدوية",
+ai_chat_title:"المساعد الطبي الذكي",
+ai_welcome:"مرحباً! أنا مساعدك الطبي الذكي. يمكنني مساعدتك في:",
+ai_help_1:"معلومات الأدوية والجرعات",
+ai_help_2:"تداخلات الأدوية",
+ai_help_3:"الحسابات الطبية",
+ai_help_4:"الأسئلة الصحية العامة",
+ai_disclaimer:"ملاحظة: هذا للأغراض التعليمية فقط. استشر دائماً متخصصاً طبياً.",
+ai_send:"إرسال",
+health_tracker_title:"تتبع الصحة",
+health_tracker_desc:"تتبع المقاييس الصحية اليومية بما في ذلك ضغط الدم ومعدل ضربات القلب والوزن والمزيد.",
+metric_bp:"ضغط الدم",
+metric_heart_rate:"معدل ضربات القلب",
+metric_weight:"الوزن",
+metric_glucose:"سكر الدم",
+metric_save:"حفظ",
+vaccination_title:"سجلات التطعيم",
+vaccination_desc:"تتبع التطعيمات وجرعات التعزيز القادمة.",
+vaccine_name_ph:"اسم اللقاح",
+vaccine_date_ph:"التاريخ",
+vaccine_next_ph:"تاريخ الجرعة التالية",
+vaccine_add:"إضافة سجل",
+lab_results_title:"نتائج المختبر",
+lab_results_desc:"تخزين وتتبع نتائج الاختبارات المعملية للمرجع السهل.",
+lab_test_ph:"اسم الاختبار",
+lab_date_ph:"تاريخ الاختبار",
+lab_value_ph:"قيمة النتيجة",
+lab_range_ph:"النطاق الطبيعي",
+lab_add:"إضافة نتيجة",
+allergy_title:"فاحص الحساسية",
+allergy_desc:"تحقق من المواد المسببة للحساسية المحتملة في الأدوية والأطعمة.",
+allergy_input_ph:"أدخل دواء أو طعام",
+allergy_check:"التحقق من المواد المسببة للحساسية",
+my_allergies_title:"حساسياتي",
+my_allergy_ph:"أضف حساسيتك",
+allergy_add:"إضافة",
+symptom_title:"فاحص الأعراض",
+symptom_desc:"صف أعراضك للحصول على الأسباب المحتملة والتوصيات.",
+symptom_desc_ph:"صف أعراضك...",
+symptom_check:"تحليل الأعراض",
+emergency_title:"دليل الطوارئ",
+emergency_desc:"مرجع سريع لحالات الطوارئ وإجراءات الإسعافات الأولية.",
+emergency_heart:"🚨 نوبة قلبية",
+emergency_heart_desc:"ألم في الصدر، ضيق في التنفس، غثيان. اتصل بالطوارئ فوراً.",
+emergency_stroke:"🚨 سكتة دماغية",
+emergency_stroke_desc:"تدلي الوجه، ضعف الذراع، صعوبة الكلام. تصرف بسرعة.",
+emergency_breathing:"⚠️ صعوبة في التنفس",
+emergency_breathing_desc:"اجلس بشكل مستقيم، استخدم البخاخ إذا كان متاحاً، اتصل بالطوارئ إذا كان شديداً.",
+emergency_bleeding:"⚠️ نزيف شديد",
+emergency_bleeding_desc:"طبق ضغطاً مباشراً، ارفع إذا أمكن، اتصل بالطوارئ.",
+emergency_burns:"ℹ️ الحروق",
+emergency_burns_desc:"برد بالماء الجاري، غط بضمادة معقمة، اطلب المساعدة الطبية.",
+emergency_poison:"ℹ️ التسمم",
+emergency_poison_desc:"اتصل بمركز مكافحة السموم، لا ت induce القيء إلا إذا تم توجيهك.",
+drug_comparison_title:"مقارنة الأدوية",
+drug_comparison_desc:"قارن بين دوائين جنباً إلى جنب لفهم الاختلافات والتشابهات.",
+compare_drug1_ph:"الدواء الأول",
+compare_drug2_ph:"الدواء الثاني",
+compare_btn:"مقارنة الأدوية"
 });
 
 Object.assign(I18N.ta,{
@@ -536,7 +812,145 @@ nav_camera:"கேமரா",
 nav_drugs:"மருந்துகள்",
 nav_account:"கணக்கு",
 nav_locator:"வரைபடம்",
-nav_news:"செய்திகள்"
+nav_news:"செய்திகள்",
+nav_faq:"கேள்விகள்",
+loading_text:"PharmaCare ஏற்றுகிறது...",
+hero_title:"உங்கள் நம்பகமான மருத்துவ உதவியாளர்",
+hero_subtitle:"மருந்து பகுப்பாய்வு, ஸ்மார்ட் தேடல், தொடர்பு சோதனை மற்றும் AI ஆதரவு - அனைத்தும் ஒரே இடத்தில்",
+feature_drug_analysis:"மருந்து பகுப்பாய்வு",
+feature_drug_analysis_desc:"விரிவான மருந்து தகவல் மற்றும் மருந்தளவு கணக்கீடுகள்",
+feature_smart_search:"ஸ்மார்ட் தேடல்",
+feature_smart_search_desc:"200+ மருந்துகள் மற்றும் மூலிகைகளில் விரைவான தேடல்",
+feature_interactions:"தொடர்பு சோதனை",
+feature_interactions_desc:"மருந்து-மருந்து தொடர்புகளை பாதுகாப்பாக சரிபார்க்கவும்",
+feature_ai_assistant:"AI உதவியாளர்",
+feature_ai_assistant_desc:"புத்திசாலி மருந்து வழிகாட்டுதல் மற்றும் ஆதரவு",
+disclaimer_text:"இந்த பயன்பாடு கல்வி தகவலை மட்டுமே வழங்குகிறது, தொழில்முறை மருத்துவ ஆலோசனைக்கு மாற்றாக இல்லை. எப்போதும் மருத்துவர் அல்லது மருந்தாளரை ஆலோசிக்கவும்.",
+faq_title:"அடிக்கடி கேட்கப்படும் கேள்விகள்",
+faq_q1:"இந்த பயன்பாடு மருத்துவ ஆலோசனைக்கு மாற்றா?",
+faq_a1:"இல்லை. இந்த பயன்பாடு கல்வி தகவலை மட்டுமே வழங்குகிறது. மருத்துவ முடிவுகளுக்கு எப்போதும் தகுதியான சுகாதார நிபுணரை ஆலோசிக்கவும்.",
+faq_q2:"மருந்து தகவல் எவ்வளவு துல்லியமானது?",
+faq_a2:"எங்கள் தரவுத்தளம் பொதுவான மருந்துகள் மற்றும் அவற்றின் வழக்கமான பயன்பாடுகளை உள்ளடக்கியது. இருப்பினும், மருந்துகள் அடிக்கடி மாறுகின்றன, மற்றும் தனிப்பட்ட பதில்கள் வேறுபடுகின்றன. அதிகாரப்பூர்வ ஆதாரங்களை சரிபார்க்கவும்.",
+faq_q3:"அவசரச் சூழ்நிலைகளில் இதைப் பயன்படுத்தலாம்?",
+faq_a3:"இல்லை. இந்த பயன்பாடு அவசரச் சூழ்நிலைகளுக்கு வடிவமைக்கப்படவில்லை. அவசர மருத்துவ நிலைமைகளுக்கு உடனடி அவசர சேவைகளை அழைக்கவும்.",
+faq_q4:"என் தரவு பாதுகாப்பாக சேமிக்கப்பட்டுள்ளதா?",
+faq_a4:"உங்கள் குறிப்புகள் மற்றும் சுயவிவரம் உங்கள் சாதனத்தில் உள்ளூரில் சேமிக்கப்படுகின்றன. நாங்கள் தனிப்பட்ட மருத்துவ தரவை சேகரிக்கவோ அல்லது வெளிப்புற சர்வர்களுக்கு அனுப்பவோ இல்லை.",
+faq_q5:"மருந்து தகவலில் பிழையை எப்படி புகாரளிக்கலாம்?",
+faq_a5:"துல்லியமற்ற விவரங்களுடன் தொடர்பு பக்கத்தின் மூலம் எங்களைத் தொடர்பு கொள்ளவும். கருத்துக்களின் அடிப்படையில் எங்கள் தரவுத்தளத்தை தொடர்ந்து புதுப்பிக்கிறோம்.",
+about_title:"PharmaCare பற்றி",
+about_welcome_title:"PharmaCare-க்கு வரவேற்கிறோம்",
+about_welcome_desc:"PharmaCare என்பது எளிய மற்றும் அணுகக்கூடிய இடைமுகத்தில் கல்வி சார்ந்த மருந்து தகவல்கள், நடைமுறை மருத்துவக் கருவிகள் மற்றும் உற்பத்தித்திறன் அம்சங்களை வழங்குவதற்காக வடிவமைக்கப்பட்ட ஒரு நவீன சுகாதாரத் துணையாகும். இத்திட்டம் மாணவர்கள், சுகாதாரப் பணியாளர்கள் மற்றும் அன்றாடப் பயனர்கள் எளிதான பயனர் அனுபவத்தைப் பராமரிக்கும் அதே வேளையில் பயनुள்ள மருத்துவ ஆதாரங்களை விரைவாக அணுக உதவுவதை நோக்கமாகக் கொண்டுள்ளது.",
+about_mission_title:"எங்கள் நோக்கம்",
+about_mission_desc:"தகுதி வாய்ந்த சுகாதார நிபுணர்களின் ஆலோசனை மற்றும் பொறுப்பான பயன்பாட்டை ஊக்குவிக்கும் அதே வேளையில், தொழில்நுட்பத்தின் மூலம் மருத்துவத் தகவல்கள் மற்றும் அத்தியாவசிய சுகாதாரப் பயன்பாடுகளை எளிதாக அணுகச் செய்வதே எங்கள் நோக்கம்.",
+about_features_title:"முக்கிய அம்சங்கள்",
+about_feat_1:"மருந்து தகவல் நூலகம்",
+about_feat_2:"மருத்துவ கணக்கீடுகள்",
+about_feat_3:"மருந்து குறிப்புகள் மற்றும் ஒழுங்கமைப்பு கருவிகள்",
+about_feat_4:"டார்க் மோட் ஆதரவு",
+about_feat_5:"பன்மொழி இடைமுகம்",
+about_feat_6:"மொபைல் நட்பு பதிலளிக்கக்கூடிய வடிவமைப்பு",
+about_feat_7:"முற்போக்கான வலை பயன்பாடு (PWA) ஆதரவு",
+about_feat_8:"கேமரா மற்றும் பார்கோடு தொடர்பான பயன்பாடுகள் (கிடைக்கும் இடங்களில்)",
+about_tech_title:"பயன்படுத்தப்பட்ட தொழில்நுட்பங்கள்",
+about_tech_desc:"PharmaCare நவீன வலை தொழில்நுட்பங்களைப் பயன்படுத்தி கட்டமைக்கப்பட்டுள்ளது, இதில் பின்வருவன அடங்கும்:",
+about_tech_1:"HTML5",
+about_tech_2:"CSS3",
+about_tech_3:"வெண்ணيلா ஜாவாஸ்கிரிப்ட்",
+about_tech_4:"லோக்கல் ஸ்டோரேஜ் API-கள்",
+about_tech_5:"முற்போக்கான வலை பயன்பாட்டு தொழில்நுட்பங்கள்",
+about_tech_6:"பதிலளிக்கக்கூடிய வடிவமைப்பு கொள்கைகள்",
+about_sources_title:"தகவல் ஆதாரங்கள் மற்றும் குறிப்புகள்",
+about_sources_desc:"PharmaCare-ல் வழங்கப்பட்டுள்ள தகவல்கள் கல்விப் பொருட்கள், நிலையான மருத்துவக் குறிப்புகள், பொதுவில் கிடைக்கக்கூடிய சுகாதார ஆதாரங்கள் மற்றும் பொருந்தக்கூடிய இடங்களில் நிறுவப்பட்ட மருத்துவ சூத்திரங்களிலிருந்து தொகுக்கப்பட்டுள்ளன. நம்பகமான சுகாதார அமைப்புகள் மற்றும் அதிகாரப்பூர்வ மருந்து குறிப்புகள் மூலம் சரிபார்ப்பதை இத்திட்டம் ஊக்குவிக்கிறது.",
+about_disclaimer_title:"மருத்துவ மறுப்பு",
+about_disclaimer_desc:"PharmaCare கல்வி மற்றும் தகவல் நோக்கங்களுக்காக மட்டுமே வடிவமைக்கப்பட்டுள்ளது. இது மருத்துவக் கண்டறிதல், சிகிச்சை அல்லது தொழில்முறை சுகாதார ஆலோசனைகளை வழங்காது. மருத்துவ முடிவுகளை எடுப்பதற்கு அல்லது மருந்துகளை உட்கொள்வதற்கு முன்பு பயனர்கள் எப்போதும் உரிமம் பெற்ற மருத்துவர்கள், மருந்தக வல்லுநர்கள் அல்லது பிற தகுதி வாய்ந்த சுகாதார நிபுணர்களைக் கலந்தாலோசிக்க வேண்டும்.",
+about_privacy_title:"தனியுரிமை",
+about_privacy_desc:"PharmaCare பயனர்களின் தனியுரிமையை மதிக்கும் வகையில் வடிவமைக்கப்பட்டுள்ளது. தனிப்பட்ட குறிப்புகள் மற்றும் விருப்பத்தேர்வுகள் பயனரின் சாதனத்தில் உள்ளூரில் சேமிக்கப்படலாம். தகுந்த பாதுகாப்பு நடவடிக்கைகள் செயல்படுத்தப்படாவிட்டால், பயனர்கள் அதிக உணர்திறன் கொண்ட மருத்துவ அல்லது தனிப்பட்ட தகவல்களைச் சேமிப்பதைத் தவிர்க்க வேண்டும்.",
+about_accuracy_title:"துல்லியம் மற்றும் வரம்புகள்",
+about_accuracy_desc:"வழங்கப்பட்ட தகவலின் தரம் மற்றும் நம்பகத்தன்மையை மேம்படுத்த அனைத்து முயற்சிகளும் மேற்கொள்ளப்பட்டாலும், முழுமை அல்லது துல்லியம் குறித்து எந்த உத்தரவாதமும் அளிக்கப்படவில்லை. மருத்துவ அறிவு தொடர்ந்து உருவாகிறது, மேலும் பரிந்துரைகள் காலப்போக்கில் மாறக்கூடும்.",
+about_opensource_title:"திறந்த மூலம் மற்றும் வரவு",
+about_opensource_desc:"நவீன வலை மேம்பாட்டை சாத்தியமாக்கும் திறந்த மூல சமூகம் மற்றும் கல்வி ஆதாரங்களின் பங்களிப்புகளை இந்த திட்டம் அங்கீகரிக்கிறது. எந்தவொரு மூன்றாம் தரப்பு நூலகங்கள், சின்னங்கள், எழுத்துருக்கள் அல்லது வெளிப்புற சொத்துக்கள் அவற்றின் தகுந்த உரிமங்களின்படி வரவு வைக்கப்பட வேண்டும்.",
+about_vision_title:"திட்ட பார்வை",
+about_vision_desc:"PharmaCare-ன் நீண்டகால பார்வை என்னவென்றால், மருத்துவ அறிவிற்கான அணுகலை மேம்படுத்த நம்பகமான கல்வி உள்ளடக்கம், ஸ்மார்ட் உற்பத்தித்திறன் கருவிகள், மருந்து மேلاண்மை மற்றும் நவீன தொழில்நுட்பம் ஆகியவற்றை இணைக்கும் ஒரு விரிவான சுகாதார உதவியாளராக மாறுவதாகும்.",
+about_contact_title:"தொடர்பு கொள்ள",
+about_contact_desc:"கேள்விகள், கருத்துகள், பிழை அறிக்கைகள் அல்லது ஒத்துழைப்பு வாய்ப்புகளுக்கு, திட்டத்தின் அதிகாரப்பூர்வ தொடர்பு சேனல்கள் அல்லது களஞ்சியம் மூலம் திட்ட பராமரிப்பாளரைத் தொடர்பு கொள்ள பயனர்கள் ஊக்குவிக்கப்படுகிறார்கள்.",
+about_version:"பதிப்பு",
+about_last_updated:"கடைசியாக புதுப்பிக்கப்பட்டது",
+contact_title:"எங்களை தொடர்பு கொள்ளுங்கள்",
+contact_desc:"கேள்விகள் அல்லது கருத்துக்கள் உள்ளனவா? எங்கள் உங்களைக் கேட்க விரும்புகிறோம்.",
+contact_name_ph:"உங்கள் பெயர்",
+contact_email_ph:"உங்கள் மின்னஞ்சல்",
+contact_message_ph:"உங்கள் செய்தி",
+contact_btn:"செய்தியை அனுப்பு",
+contact_info_title:"தொடர்பு தகவல்",
+contact_response:"24-48 மணி நேரத்திற்குள்",
+account_links_title:"விரைவு இணைப்புகள்",
+about_link:"PharmaCare பற்றி",
+contact_link:"எங்களை தொடர்பு கொள்ளுங்கள்",
+card_health_tracker:"சுகாதார கண்காணிப்பு",
+card_vaccination:"தடுப்பூட்டி பதிவுகள்",
+card_lab_results:"ஆய்வக முடிவுகள்",
+card_allergies:"ஒவ்வாமை சோதனை",
+card_symptom_checker:"அறிகுறி சோதனை",
+card_emergency_guide:"அவசர வழிகாட்டி",
+card_drug_comparison:"மருந்து ஒப்பீடு",
+ai_chat_title:"AI மருத்துவ உதவியாளர்",
+ai_welcome:"வணக்கம்! நான் உங்கள் AI மருத்துவ உதவியாளர். நான் உங்களுக்கு உதவ முடியும்:",
+ai_help_1:"மருந்து தகவல் மற்றும் மருந்தளவு",
+ai_help_2:"மருந்து தொடர்புகள்",
+ai_help_3:"மருத்துவ கணக்கீடுகள்",
+ai_help_4:"பொது சுகாதார கேள்விகள்",
+ai_disclaimer:"குறிப்பு: இது கல்வி நோக்கங்களுக்காக மட்டுமே. எப்போதும் சுகாதார நிபுணரை ஆலோசிக்கவும்.",
+ai_send:"அனுப்பு",
+health_tracker_title:"சுகாதார கண்காணிப்பு",
+health_tracker_desc:"இரத்த அழுத்தம், இதய துடிப்பு வீதம், எடை மற்றும் பிறவற்றை உள்ளடக்கிய தினசரி சுகாதார அளவீடுகளை கண்காணிக்கவும்.",
+metric_bp:"இரத்த அழுத்தம்",
+metric_heart_rate:"இதய துடிப்பு வீதம்",
+metric_weight:"எடை",
+metric_glucose:"இரத்த சர்க்கரை",
+metric_save:"சேமி",
+vaccination_title:"தடுப்பூட்டி பதிவுகள்",
+vaccination_desc:"உங்கள் தடுப்பூட்டிகள் மற்றும் வரவிருக்கும் பூஸ்டர் டோஸ்களை கண்காணிக்கவும்.",
+vaccine_name_ph:"தடுப்பூட்டி பெயர்",
+vaccine_date_ph:"தேதி",
+vaccine_next_ph:"அடுத்த டோஸ் தேதி",
+vaccine_add:"பதிவு சேர்",
+lab_results_title:"ஆய்வக முடிவுகள்",
+lab_results_desc:"எளிதான குறிப்புக்காக உங்கள் ஆய்வக சோதனை முடிவுகளை சேமிக்கவும் மற்றும் கண்காணிக்கவும்.",
+lab_test_ph:"சோதனை பெயர்",
+lab_date_ph:"சோதனை தேதி",
+lab_value_ph:"முடிவு மதிப்பு",
+lab_range_ph:"இயல்பான வரம்பு",
+lab_add:"முடிவு சேர்",
+allergy_title:"ஒவ்வாமை சோதனை",
+allergy_desc:"மருந்துகள் மற்றும் உணவுகளில் சாத்தியமான ஒவ்வாமை காரணிகளை சரிபார்க்கவும்.",
+allergy_input_ph:"மருந்து அல்லது உணவை உள்ளிடவும்",
+allergy_check:"ஒவ்வாமை காரணிகளை சரிபார்",
+my_allergies_title:"எனது ஒவ்வாமைகள்",
+my_allergy_ph:"உங்கள் ஒவ்வாமையை சேர்",
+allergy_add:"சேர்",
+symptom_title:"அறிகுறி சோதனை",
+symptom_desc:"சாத்தியமான காரணங்கள் மற்றும் பரிந்துரைகளைப் பெற உங்கள் அறிகுறிகளை விவரிக்கவும்.",
+symptom_desc_ph:"உங்கள் அறிகுறிகளை விவரிக்கவும்...",
+symptom_check:"அறிகுறிகளை பகுப்பாய்வு",
+emergency_title:"அவசர வழிகாட்டி",
+emergency_desc:"அவசர சூழ்நிலைகள் மற்றும் முதலுதவி நடைமுறைகளுக்கான விரைவான குறிப்பு.",
+emergency_heart:"🚨 இதய தாக்குதல்",
+emergency_heart_desc:"மார்பு வலி, மூச்சு குறைப்பு, குமட்டல். உடனடி அவசர சேவையை அழைக்கவும்.",
+emergency_stroke:"🚨 பக்கவாதம்",
+emergency_stroke_desc:"முகம் சாய்வு, கை வலுக்குறைவு, பேச்சு சிரமம். விரைவாக செயல்படுங்கள்.",
+emergency_breathing:"⚠️ மூச்சு சிரமம்",
+emergency_breathing_desc:"நிமிர்ந்து அமரவும், இன்ஹேலர் இருந்தால் பயன்படுத்தவும், கடுமையாக இருந்தால் அவசர சேவையை அழைக்கவும்.",
+emergency_bleeding:"⚠️ கடுமையான இரத்தப்போக்கு",
+emergency_bleeding_desc:"நேரடி அழுத்தம் கொடுங்கள், சாத்தியமானால் உயர்த்தவும், அவசர சேவையை அழைக்கவும்.",
+emergency_burns:"ℹ️ தீக்காயங்கள்",
+emergency_burns_desc:"ஓடும் நீரில் குளிர்விக்கவும், சுத்திகரிக்கப்பட்ட கவசத்தால் மூடவும், மருத்துவ உதவியை நாடவும்.",
+emergency_poison:"ℹ️ நச்சு",
+emergency_poison_desc:"நச்சு கட்டுப்பாட்டை அழைக்கவும், அறிவுறுத்தப்படாவிட்டால் வாந்தியை தூண்ட வேண்டாம்.",
+drug_comparison_title:"மருந்து ஒப்பீடு",
+drug_comparison_desc:"இரண்டு மருந்துகளை ஒப்பிட்டு வேறுபாடுகள் மற்றும் ஒற்றுமைகளைப் புரிந்துகொள்ளவும்.",
+compare_drug1_ph:"முதல் மருந்து",
+compare_drug2_ph:"இரண்டாவது மருந்து",
+compare_btn:"மருந்துகளை ஒப்பிடு"
 });
 
 // Calculator & page extra keys
@@ -1972,4 +2386,337 @@ if(text!==null){
 document.getElementById("notesArea").value=text;
 }
 
+}
+
+// Loading Screen
+window.addEventListener('load', function() {
+  const loadingScreen = document.getElementById('loadingScreen');
+  if (loadingScreen) {
+    setTimeout(() => {
+      loadingScreen.classList.add('hidden');
+    }, 800);
+  }
+});
+
+// Dark/Light Mode Persistence
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  if (window.localStorage) {
+    localStorage.setItem('pharmaTheme', isDark ? 'dark' : 'light');
+  }
+}
+
+function loadTheme() {
+  if (window.localStorage) {
+    const savedTheme = localStorage.getItem('pharmaTheme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark');
+    }
+  }
+}
+
+// Initialize theme on page load
+loadTheme();
+
+// Contact Form
+function submitContact() {
+  const name = document.getElementById('contactName').value;
+  const email = document.getElementById('contactEmail').value;
+  const message = document.getElementById('contactMessage').value;
+  const statusDiv = document.getElementById('contactStatus');
+
+  if (!name || !email || !message) {
+    statusDiv.innerHTML = 'Please fill in all fields.';
+    return;
+  }
+
+  // Simulate form submission
+  statusDiv.innerHTML = 'Thank you for your message! We will get back to you within 24-48 hours.';
+  document.getElementById('contactName').value = '';
+  document.getElementById('contactEmail').value = '';
+  document.getElementById('contactMessage').value = '';
+}
+
+// Scroll Animations
+function initScrollAnimations() {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements with fade-in-up class
+  document.querySelectorAll('.fade-in-up').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+// Initialize scroll animations when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScrollAnimations);
+} else {
+  initScrollAnimations();
+}
+
+// AI Assistant Chat
+function toggleAIChat() {
+  const chatInterface = document.getElementById('aiChatInterface');
+  chatInterface.classList.toggle('active');
+}
+
+function handleAIChatKeypress(event) {
+  if (event.key === 'Enter') {
+    sendAIMessage();
+  }
+}
+
+function sendAIMessage() {
+  const input = document.getElementById('aiChatInput');
+  const message = input.value.trim();
+  if (!message) return;
+
+  const messagesDiv = document.getElementById('aiChatMessages');
+
+  // Add user message
+  const userMsg = document.createElement('div');
+  userMsg.className = 'ai-message ai-message--user';
+  userMsg.innerHTML = `<div class="ai-message-content"><p>${escapeHtml(message)}</p></div>`;
+  messagesDiv.appendChild(userMsg);
+
+  input.value = '';
+
+  // Simulate AI response
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.className = 'ai-message ai-message--bot';
+    const response = generateAIResponse(message);
+    botMsg.innerHTML = `<div class="ai-message-content"><p>${response}</p></div>`;
+    messagesDiv.appendChild(botMsg);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }, 1000);
+
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+function generateAIResponse(message) {
+  const lowerMessage = message.toLowerCase();
+  
+  if (lowerMessage.includes('drug') || lowerMessage.includes('medicine') || lowerMessage.includes('medication')) {
+    return "I can help you with drug information! Please specify the drug name you're interested in, and I'll provide details about its uses, dosage, and potential interactions. Remember to always consult a healthcare professional.";
+  } else if (lowerMessage.includes('interaction') || lowerMessage.includes('interact')) {
+    return "For drug interaction checking, please use the Drug Interaction Checker in the Drugs section. You can enter multiple medications to check for potential interactions. This is for educational purposes only.";
+  } else if (lowerMessage.includes('dosage') || lowerMessage.includes('dose')) {
+    return "Dosage information varies by individual factors like age, weight, and medical condition. Please use the Medical Calculators section for dosage calculations, and always follow your healthcare provider's prescription.";
+  } else if (lowerMessage.includes('side effect') || lowerMessage.includes('adverse')) {
+    return "Side effects vary by medication. For specific drug information, please search in the Drug Library section. If you experience severe side effects, contact your healthcare provider immediately.";
+  } else if (lowerMessage.includes('emergency') || lowerMessage.includes('urgent')) {
+    return "For medical emergencies, please call emergency services immediately (911 in US, 999 in UK, 112 in EU). This app is not for emergency situations. The Emergency Guide section has first aid information.";
+  } else if (lowerMessage.includes('allergy') || lowerMessage.includes('allergic')) {
+    return "You can check for allergens using the Allergy Checker section. Always inform your healthcare provider about any known allergies before starting new medications.";
+  } else if (lowerMessage.includes('pregnant') || lowerMessage.includes('pregnancy')) {
+    return "Pregnancy-related medication decisions should always be made with your healthcare provider. Many medications require special consideration during pregnancy.";
+  } else {
+    return "I'm here to help with medical information! You can ask me about drugs, dosages, interactions, side effects, or use the specific sections in the app for detailed information. What would you like to know?";
+  }
+}
+
+// Health Tracker
+function saveHealthMetric(type) {
+  let value = '';
+  let display = '';
+  
+  if (type === 'bp') {
+    const systolic = document.getElementById('bpSystolic').value;
+    const diastolic = document.getElementById('bpDiastolic').value;
+    if (systolic && diastolic) {
+      value = `${systolic}/${diastolic}`;
+      display = `Blood Pressure: ${systolic}/${diastolic} mmHg`;
+    }
+  } else if (type === 'heart') {
+    const hr = document.getElementById('heartRate').value;
+    if (hr) {
+      value = hr;
+      display = `Heart Rate: ${hr} BPM`;
+    }
+  } else if (type === 'weight') {
+    const w = document.getElementById('healthWeight').value;
+    if (w) {
+      value = w;
+      display = `Weight: ${w} kg`;
+    }
+  } else if (type === 'glucose') {
+    const g = document.getElementById('glucose').value;
+    if (g) {
+      value = g;
+      display = `Blood Glucose: ${g} mg/dL`;
+    }
+  }
+
+  if (!value) return;
+
+  const history = JSON.parse(localStorage.getItem('healthMetrics') || '[]');
+  history.push({ type, value, date: new Date().toISOString() });
+  localStorage.setItem('healthMetrics', JSON.stringify(history));
+
+  document.getElementById('healthHistory').innerHTML = `<strong>Saved:</strong> ${display}<br><small>Recorded at ${new Date().toLocaleTimeString()}</small>`;
+}
+
+// Vaccination Records
+function addVaccination() {
+  const name = document.getElementById('vaccineName').value;
+  const date = document.getElementById('vaccineDate').value;
+  const next = document.getElementById('vaccineNext').value;
+
+  if (!name || !date) {
+    document.getElementById('vaccinationList').innerHTML = 'Please enter vaccine name and date.';
+    return;
+  }
+
+  const records = JSON.parse(localStorage.getItem('vaccinations') || '[]');
+  records.push({ name, date, next });
+  localStorage.setItem('vaccinations', JSON.stringify(records));
+
+  document.getElementById('vaccinationList').innerHTML = `<strong>Added:</strong> ${name} on ${date}${next ? '<br>Next dose: ' + next : ''}`;
+  document.getElementById('vaccineName').value = '';
+  document.getElementById('vaccineDate').value = '';
+  document.getElementById('vaccineNext').value = '';
+}
+
+// Lab Results
+function addLabResult() {
+  const name = document.getElementById('labTestName').value;
+  const date = document.getElementById('labTestDate').value;
+  const value = document.getElementById('labTestValue').value;
+  const range = document.getElementById('labTestRange').value;
+
+  if (!name || !value) {
+    document.getElementById('labResultsList').innerHTML = 'Please enter test name and result value.';
+    return;
+  }
+
+  const results = JSON.parse(localStorage.getItem('labResults') || '[]');
+  results.push({ name, date, value, range });
+  localStorage.setItem('labResults', JSON.stringify(results));
+
+  document.getElementById('labResultsList').innerHTML = `<strong>Added:</strong> ${name}: ${value}${range ? ' (Normal: ' + range + ')' : ''}`;
+  document.getElementById('labTestName').value = '';
+  document.getElementById('labTestDate').value = '';
+  document.getElementById('labTestValue').value = '';
+  document.getElementById('labTestRange').value = '';
+}
+
+// Allergy Checker
+function checkAllergy() {
+  const input = document.getElementById('allergyInput').value;
+  if (!input) {
+    document.getElementById('allergyResult').innerHTML = 'Please enter a medication or food.';
+    return;
+  }
+
+  const commonAllergens = ['penicillin', 'sulfa', 'aspirin', 'ibuprofen', 'latex', 'peanuts', 'shellfish', 'dairy', 'gluten', 'eggs'];
+  const lowerInput = input.toLowerCase();
+  
+  const found = commonAllergens.filter(a => lowerInput.includes(a));
+  
+  if (found.length > 0) {
+    document.getElementById('allergyResult').innerHTML = `<strong>⚠️ Potential allergens found:</strong> ${found.join(', ')}<br><small>This is a basic check. Consult a healthcare professional for accurate allergy testing.</small>`;
+  } else {
+    document.getElementById('allergyResult').innerHTML = `<strong>No common allergens detected in our database.</strong><br><small>This is not a comprehensive check. Always verify with a healthcare provider.</small>`;
+  }
+}
+
+function addMyAllergy() {
+  const allergy = document.getElementById('myAllergy').value;
+  if (!allergy) return;
+
+  const allergies = JSON.parse(localStorage.getItem('myAllergies') || '[]');
+  allergies.push(allergy);
+  localStorage.setItem('myAllergies', JSON.stringify(allergies));
+
+  document.getElementById('myAllergiesList').innerHTML = `<strong>Added:</strong> ${allergy}<br><small>Total allergies: ${allergies.length}</small>`;
+  document.getElementById('myAllergy').value = '';
+}
+
+// Symptom Checker
+function checkSymptoms() {
+  const description = document.getElementById('symptomDescription').value;
+  if (!description) {
+    document.getElementById('symptomResult').innerHTML = 'Please describe your symptoms.';
+    return;
+  }
+
+  const lowerDesc = description.toLowerCase();
+  let possibleCauses = [];
+
+  if (lowerDesc.includes('headache')) {
+    possibleCauses.push('Tension headache', 'Migraine', 'Dehydration');
+  }
+  if (lowerDesc.includes('fever')) {
+    possibleCauses.push('Viral infection', 'Bacterial infection', 'Inflammation');
+  }
+  if (lowerDesc.includes('cough')) {
+    possibleCauses.push('Common cold', 'Flu', 'Bronchitis', 'Allergies');
+  }
+  if (lowerDesc.includes('stomach') || lowerDesc.includes('nausea')) {
+    possibleCauses.push('Gastritis', 'Food poisoning', 'Viral gastroenteritis');
+  }
+  if (lowerDesc.includes('chest') || lowerDesc.includes('heart')) {
+    possibleCauses.push('⚠️ Heart condition - Seek immediate medical attention', 'Acid reflux', 'Anxiety');
+  }
+  if (lowerDesc.includes('breath') || lowerDesc.includes('shortness')) {
+    possibleCauses.push('⚠️ Respiratory issue - Seek immediate medical attention', 'Asthma', 'Anxiety');
+  }
+
+  if (possibleCauses.length === 0) {
+    possibleCauses.push('Various conditions - Please consult a healthcare provider');
+  }
+
+  document.getElementById('symptomResult').innerHTML = `<strong>Possible causes:</strong><ul>${possibleCauses.map(c => `<li>${c}</li>`).join('')}</ul><p style="color: #dc2626; font-size: 0.875rem;">⚠️ This is for educational purposes only. For accurate diagnosis, please consult a healthcare professional.</p>`;
+}
+
+// Drug Comparison
+function compareDrugs() {
+  const drug1 = document.getElementById('compareDrug1').value;
+  const drug2 = document.getElementById('compareDrug2').value;
+
+  if (!drug1 || !drug2) {
+    document.getElementById('comparisonResult').innerHTML = 'Please enter both drug names.';
+    return;
+  }
+
+  document.getElementById('comparisonResult').innerHTML = `
+    <strong>Comparison: ${escapeHtml(drug1)} vs ${escapeHtml(drug2)}</strong><br><br>
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr style="border-bottom: 1px solid var(--color-border);">
+        <th style="padding: 8px; text-align: left;">Aspect</th>
+        <th style="padding: 8px; text-align: left;">${escapeHtml(drug1)}</th>
+        <th style="padding: 8px; text-align: left;">${escapeHtml(drug2)}</th>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--color-border);">
+        <td style="padding: 8px;">Class</td>
+        <td style="padding: 8px;">Check drug database</td>
+        <td style="padding: 8px;">Check drug database</td>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--color-border);">
+        <td style="padding: 8px;">Common Uses</td>
+        <td style="padding: 8px;">Varies by indication</td>
+        <td style="padding: 8px;">Varies by indication</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px;">Side Effects</td>
+        <td style="padding: 8px;">Consult healthcare provider</td>
+        <td style="padding: 8px;">Consult healthcare provider</td>
+      </tr>
+    </table>
+    <p style="margin-top: 12px; font-size: 0.875rem; color: var(--color-text-muted);">This is a template comparison. For detailed information, search each drug in the Drug Library.</p>
+  `;
 }
